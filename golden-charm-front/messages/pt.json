@@ -1,0 +1,106 @@
+{
+  "AppNavbar": {
+    "paragraph-1": "10% desconto no pagamento em dinheiro.",
+    "paragraph-2": "Dia das Mães | Aproveite as melhores ofertas.",
+    "paragraph-3": "Frete grátis para pedidos acima de 500 euros",
+    "navTitle-1": "Home",
+    "navTitle-2": "Produtos",
+    "inputSearch": "Buscar...",
+    "navTitle-3": "Sobre",
+    "iconFavorite": "Favorito",
+    "iconLogin": "Conectar",
+    "iconCart": "Carrinho"
+  },
+  "HomePage": {
+    "title": "Pagina principal",
+    "brand": "Golden Charm",
+    "slogan": "Realce sua beleza com o brilho que só uma joia verdadeira oferece.",
+    "description": "Descubra coleções exclusivas que encantam e eternizam momentos.",
+    "shopNow": "Comprar agora"
+  },
+  "Shop": {
+    "title": "Pagina de Shoping"
+  },
+  "Product": {
+    "title": "Página do produto"
+  },
+  "Cart": {
+    "title": "Pagina do carrinho"
+  },
+  "Checkout": {
+    "title": "pagina de checkout"
+  },
+  "About": {
+    "title": "pagina de sobre"
+  },
+  "Contact": {
+    "title": "pagina de contact"
+  },
+  "Login": {
+    "title": "Pagina de login"
+  },
+  "ProductsIcon": {
+    "shopBy": "Compra por categoria",
+    "bracelet": "PULSEIRA",
+    "cord": "CORDÃO",
+    "earrings": "BRINCOS",
+    "rings": "ANÉIS",
+    "pendant": "PINGENTE"
+  },
+  "QuoteSection": {
+    "text": "Cada criação da <strong>Golden Charm</strong> é um tributo ao refinamento: onde a ousadia do design encontra a delicadeza do feito à mão, e as gemas mais raras contam histórias que ecoam além do tempo. Nossa nova coleção mergulha em universos ocultos, revelando joias que despertam emoção e mistério a cada detalhe.",
+    "author": "—Luiz Ribeiro, Diretor Criativo de Alta Joalheria da Golden Charm"
+  },
+  "Carousel": {
+    "carouselTitle": "Destaques da Coleção",
+    "slides": {
+      "slide1": { "title": "Anel Bali", "price": "€ 750,00" },
+      "slide2": { "title": "Anel Rodolita", "price": "€ 500,00" },
+      "slide3": { "title": "Anel Marinho", "price": "€ 810,00" },
+      "slide4": { "title": "Brinco Lux", "price": "€ 550,00" },
+      "slide5": { "title": "Pulseira", "price": "€ 810,00" },
+      "slide6": { "title": "Cordão Masculino", "price": "€ 550,00" }
+    }
+  },
+  "TestimonialSlider": {
+    "ratingText": "Mais de 2.239 avaliações cinco estrelas",
+    "headline": "Veja o que as pessoas estão dizendo sobre nós",
+    "about": "sobre",
+    "testimonial1": {
+      "title": "A linda aliança da Lana!",
+      "description": "Essa aliança é tão brilhante e reflete a luz como glitter. Combinei com algumas faixas finas de diamantes. Ela se destaca com sua cravação simples em ouro. Estou muito feliz com essa compra.",
+      "author": "Lisa Logothetis",
+      "product": "Aliança Lana"
+    },
+    "testimonial2": {
+      "title": "Outro depoimento incrível!",
+      "description": "Essa joia é perfeita para ocasiões especiais. Recebi muitos elogios!",
+      "author": "Maria Silva",
+      "product": "Colar Golden Star"
+    },
+    "testimonial3": {
+      "title": "Simplesmente apaixonada pelo meu colar!",
+      "description": "O Golden Star Pendant é ainda mais bonito pessoalmente. O brilho é sutil e elegante, e o design delicado combina com tudo. Usei em um jantar especial e recebi vários elogios. Sem dúvida, foi uma das melhores compras que já fiz.",
+      "author": "Maria Silva",
+      "product": "Colar Golden Star"
+    },
+    "testimonial4": {
+      "title": "Um detalhe que faz toda a diferença",
+      "description": "Comprei o pingente como presente para mim mesma e fiquei encantada. Ele é delicado, brilha na medida certa e traz um toque especial até para os looks mais simples.",
+      "author": "Juliana M.",
+      "product": "Pingente Elegance Light"
+    },
+    "testimonial5": {
+      "title": "Símbolo perfeito do nosso amor",
+      "description": "Escolhemos a aliança Golden Charm para marcar nosso compromisso e não poderíamos estar mais felizes. O acabamento é impecável, o brilho é sutil e sofisticado.",
+      "author": "André L.",
+      "product": "Aliança Classic Gold"
+    },
+    "testimonial6": {
+      "title": "Brilho que transforma o visual",
+      "description": "Esses brincos são maravilhosos! Leves, confortáveis e com um brilho discreto que chama atenção. Uso tanto no dia a dia quanto em eventos.",
+      "author": "Renata F.",
+      "product": "Brincos Lux Rosé"
+    }
+  }
+}

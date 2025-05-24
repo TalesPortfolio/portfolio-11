@@ -1,0 +1,106 @@
+{
+  "AppNavbar": {
+    "paragraph-1": "10% discount on cash payment.",
+    "paragraph-2": "Mother's Day |Take advantage of the best offers.",
+    "paragraph-3": "Free shipping for orders over 500 euros",
+    "navTitle-1": "Home",
+    "navTitle-2": "Product",
+    "navTitle-3": "About",
+    "inputSearch": "Search...",
+    "iconFavorite": "Favorite",
+    "iconLogin": "Connect",
+    "iconCart": "Cart"
+  },
+  "HomePage": {
+    "title": "main page",
+    "brand": "Golden Charm",
+    "slogan": "Enhance your beauty with the brilliance only a true jewel offers.",
+    "description": "Discover exclusive collections that enchant and eternalize moments.",
+    "shopNow": "Shop now"
+  },
+  "Shop": {
+    "title": "Page Shop"
+  },
+  "product": {
+    "title": "Product page"
+  },
+  "Cart": {
+    "title": "Cart"
+  },
+  "Checkout": {
+    "title": "Page the Checkout"
+  },
+  "About": {
+    "title": "about page"
+  },
+  "Contact": {
+    "title": "Page the Contact"
+  },
+  "Login": {
+    "title": "Page the Login"
+  },
+  "ProductsIcon": {
+    "shopBy": "Shop by Category",
+    "bracelet": "BRACELET",
+    "cord": "CORD",
+    "earrings": "EARRINGS",
+    "rings": "RINGS",
+    "pendant": "PENDANT"
+  },
+  "QuoteSection": {
+    "text": "Each creation by <strong>Golden Charm</strong> is a tribute to refinement: where bold design meets delicate craftsmanship, and the rarest gems tell stories that echo beyond time. Our latest collection dives into hidden realms, unveiling jewels that spark emotion and mystery in every detail.",
+    "author": "—Luiz Ribeiro, Creative Director of High Jewelry at Golden Charm"
+  },
+  "Carousel": {
+    "carouselTitle": "Collection Highlights",
+    "slides": {
+      "slide1": { "title": "Ring Bali", "price": "€ 750,00" },
+      "slide2": { "title": "Ring Rodolita", "price": "€ 500,00" },
+      "slide3": { "title": "Ring Marine", "price": "€ 810,00" },
+      "slide4": { "title": "Earring Lux", "price": "€ 550,00" },
+      "slide5": { "title": "bracelet", "price": "€ 810,00" },
+      "slide6": { "title": "Male cord", "price": "€ 550,00" }
+    }
+  },
+  "TestimonialSlider": {
+    "ratingText": "Over 2,239 five-star reviews",
+    "headline": "See what people are saying about us",
+    "about": "about",
+    "testimonial1": {
+      "title": "The beautiful Lana ring!",
+      "description": "This ring is so shiny and reflects light like glitter. I paired it with some thin diamond bands. It stands out with its simple gold setting. I'm really happy I bought this beauty.",
+      "author": "Lisa Logothetis",
+      "product": "The Lana Ring"
+    },
+    "testimonial2": {
+      "title": "Another amazing testimonial!",
+      "description": "This jewel is perfect for special occasions. I received many compliments!",
+      "author": "Maria Silva",
+      "product": "Golden Star Pendant"
+    },
+    "testimonial3": {
+      "title": "Completely in love with my necklace!",
+      "description": "The Golden Star Pendant is even more beautiful in person. It’s elegant and delicate, and I received so many compliments. One of my best purchases!",
+      "author": "Maria Silva",
+      "product": "Golden Star Pendant"
+    },
+    "testimonial4": {
+      "title": "A detail that makes all the difference",
+      "description": "I bought the pendant as a gift to myself and was delighted. It's delicate, shines just right, and adds elegance even to simple looks.",
+      "author": "Juliana M.",
+      "product": "Elegance Light Pendant"
+    },
+    "testimonial5": {
+      "title": "The perfect symbol of our love",
+      "description": "We chose the Golden Charm ring to mark our engagement and couldn't be happier. The finish is flawless, and the shine is subtle and elegant.",
+      "author": "André L.",
+      "product": "Classic Gold Ring"
+    },
+    "testimonial6": {
+      "title": "Elegance that transforms the look",
+      "description": "These earrings are wonderful! Lightweight, comfortable, and a subtle shine that draws attention. I wear them every day and to events.",
+      "author": "Renata F.",
+      "product": "Lux Rosé Earrings"
+    }
+  }
+}

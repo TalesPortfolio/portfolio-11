@@ -1,0 +1,106 @@
+{
+  "AppNavbar": {
+    "paragraph-1": "10% Rabatt auf Barzahlung.",
+    "paragraph-2": "Muttertag | Nutzen Sie die besten Angebote.",
+    "paragraph-3": "Kostenloser Versand für Bestellungen über 500 Euro",
+    "navTitle-1": "Home",
+    "navTitle-2": "Product",
+    "navTitle-3": "About",
+    "inputSearch": "Suchen...",
+    "iconFavorite": "Favorit",
+    "iconLogin": "Verbinden",
+    "iconCart": "Wagen"
+  },
+  "HomePage": {
+    "title": "Hauptseite",
+    "brand": "Golden Charm",
+    "slogan": "Unterstreichen Sie Ihre Schönheit mit dem Glanz, den nur ein echtes Juwel bietet.",
+    "description": "Entdecken Sie exklusive Kollektionen, die verzaubern und unvergessliche Momente schaffen.",
+    "shopNow": "Jetzt einkaufen"
+  },
+  "Shop": {
+    "title": "Seite die Einkäufe"
+  },
+  "Product": {
+    "title": "Produktseite"
+  },
+  "Cart": {
+    "title": "Wagen"
+  },
+  "Checkout": {
+    "title": "Seite die Kasse"
+  },
+  "About": {
+    "title": "about"
+  },
+  "Contact": {
+    "title": "Seite den Kontakt"
+  },
+  "Login": {
+    "title": "Seite die Anmeldung"
+  },
+  "ProductsIcon": {
+    "shopBy": "Nach Kategorie einkaufen",
+    "bracelet": "ARMBAND",
+    "cord": "KABEL",
+    "earrings": "OHRRINGE",
+    "rings": "RINGE",
+    "pendant": "ANHÄNGERIN"
+  },
+  "QuoteSection": {
+    "text": "Jede Kreation von <strong> goldenem Charme </strong> ist eine Hommage an die Verfeinerung: Wo mutiges Design eine delikate Handwerkskunst trifft, und die seltensten Edelsteine ​​erzählen Geschichten, die über die Zeit hinaus widerrufen.Unsere neueste Sammlung taucht in versteckte Bereiche ein und enthüllt Juwelen, die in jedem Detail Emotionen und Rätsel auslösen.",
+    "author": "—Luiz Ribeiro, Creative Director of High Schmuck bei Golden Charm"
+  },
+  "Carousel": {
+    "carouselTitle": "Sammlung Höhepunkte",
+    "slides": {
+      "slide1": { "title": "Ring Bali", "price": "€ 750,00" },
+      "slide2": { "title": "Ring Rodolita", "price": "€ 500,00" },
+      "slide3": { "title": "Ring Marine", "price": "€ 810,00" },
+      "slide4": { "title": "Ohrring Lux", "price": "€ 550,00" },
+      "slide5": { "title": "Armband", "price": "€ 810,00" },
+      "slide6": { "title": "Herrenkordel", "price": "€ 550,00" }
+    }
+  },
+   "TestimonialSlider": {
+    "ratingText": "Über 2.239 Fünf-Sterne-Bewertungen",
+    "headline": "Erfahren Sie, was unsere Kunden sagen",
+    "about": "über",
+    "testimonial1": {
+      "title": "Der wunderschöne Lana-Ring!",
+      "description": "Dieser Ring ist so glänzend und reflektiert das Licht wie Glitzer. Ich habe ihn mit dünnen Diamantringen kombiniert. Er sticht mit seiner schlichten Goldfassung hervor. Ich bin sehr zufrieden mit meinem Kauf.",
+      "author": "Lisa Logothetis",
+      "product": "Der Lana-Ring"
+    },
+    "testimonial2": {
+      "title": "Ein weiteres großartiges Testimonial!",
+      "description": "Dieses Schmuckstück ist perfekt für besondere Anlässe. Ich habe viele Komplimente bekommen!",
+      "author": "Maria Silva",
+      "product": "Golden Star Anhänger"
+    },
+    "testimonial3": {
+      "title": "Ich liebe meine Halskette!",
+      "description": "Der Golden Star Anhänger ist in echt noch schöner. Eleganter Glanz, tolles Design – ich habe so viele Komplimente bekommen!",
+      "author": "Maria Silva",
+      "product": "Golden Star Anhänger"
+    },
+    "testimonial4": {
+      "title": "Ein Detail mit großer Wirkung",
+      "description": "Ich habe mir diesen Anhänger selbst geschenkt und bin begeistert. Dezent, elegant und passt zu allem.",
+      "author": "Juliana M.",
+      "product": "Elegance Light Anhänger"
+    },
+    "testimonial5": {
+      "title": "Ein perfektes Symbol unserer Liebe",
+      "description": "Wir haben den Golden Charm Ring als Zeichen unserer Verbindung gewählt. Er ist wunderschön verarbeitet und sehr edel.",
+      "author": "André L.",
+      "product": "Classic Gold Ring"
+    },
+    "testimonial6": {
+      "title": "Eleganz, die den Look verändert",
+      "description": "Diese Ohrringe sind fantastisch! Leicht, bequem und ein dezenter Glanz, der ins Auge fällt. Ich trage sie ständig.",
+      "author": "Renata F.",
+      "product": "Lux Rosé Ohrringe"
+    }
+  }
+}
