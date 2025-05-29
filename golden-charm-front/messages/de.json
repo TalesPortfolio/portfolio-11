@@ -31,7 +31,19 @@
     "title": "Seite die Kasse"
   },
   "About": {
-    "title": "about"
+    "title": "Unsere Geschichte"
+  },
+  "Whistleblower": {
+    "title": "Hinweisgebersystem",
+    "description": "Dieser Kanal ist ausschließlich für die Meldung von unangemessenem Verhalten, ethischen Verstößen oder verdächtigen Aktivitäten bestimmt. Alle Informationen werden vertraulich und auf Wunsch anonym behandelt.",
+    "name": "Name (optional)",
+    "email": "E-Mail (optional)",
+    "category": "Kategorie",
+    "categoryPlaceholder": "z. B.: Belästigung, Korruption, Betrug...",
+    "reportDescription": "Beschreibung der Meldung",
+    "reportPlaceholder": "Beschreiben Sie Ihre Meldung detailliert...",
+    "anonymous": "Anonym melden",
+    "submit": "Meldung senden"
   },
   "Contact": {
     "title": "Seite den Kontakt"
@@ -48,7 +60,7 @@
     "pendant": "ANHÄNGERIN"
   },
   "QuoteSection": {
-    "text": "Jede Kreation von <strong> goldenem Charme </strong> ist eine Hommage an die Verfeinerung: Wo mutiges Design eine delikate Handwerkskunst trifft, und die seltensten Edelsteine ​​erzählen Geschichten, die über die Zeit hinaus widerrufen.Unsere neueste Sammlung taucht in versteckte Bereiche ein und enthüllt Juwelen, die in jedem Detail Emotionen und Rätsel auslösen.",
+    "text": "Jede Kreation von <strong>Golden Charm</strong> ist eine Hommage an die Verfeinerung: Wo mutiges Design eine delikate Handwerkskunst trifft, und die seltensten Edelsteine ​​erzählen Geschichten, die über die Zeit hinaus widerrufen.Unsere neueste Sammlung taucht in versteckte Bereiche ein und enthüllt Juwelen, die in jedem Detail Emotionen und Rätsel auslösen.",
     "author": "—Luiz Ribeiro, Creative Director of High Schmuck bei Golden Charm"
   },
   "Carousel": {
@@ -62,7 +74,7 @@
       "slide6": { "title": "Herrenkordel", "price": "€ 550,00" }
     }
   },
-   "TestimonialSlider": {
+  "TestimonialSlider": {
     "ratingText": "Über 2.239 Fünf-Sterne-Bewertungen",
     "headline": "Erfahren Sie, was unsere Kunden sagen",
     "about": "über",
@@ -102,5 +114,43 @@
       "author": "Renata F.",
       "product": "Lux Rosé Ohrringe"
     }
+  },
+  "Collection": {
+    "item1": {
+      "title": "Klassische Armbänder neu gedacht",
+      "description": "Bringen Sie Farbe in Ihren Sommer mit unserer neu interpretierten Kollektion eleganter, leuchtender Armbänder."
+    },
+    "item2": {
+      "title": "Sommermomente zum Teilen",
+      "description": "Halten Sie sonnige Erinnerungen mit symbolischen Charms fest, die Ihre schönsten Augenblicke einfangen."
+    },
+    "item3": {
+      "title": "Ein grenzenloser Sommer",
+      "description": "Tragen Sie die Wärme der Sonne mit funkelndem Schmuck, der Ihren Stil das ganze Jahr über zum Strahlen bringt."
+    },
+    "learnMore": "Mehr entdecken"
+  },
+  "Footer": {
+    "companyTitle": "Unser Unternehmen",
+    "aboutUs": "Über Golden Charm",
+    "investors": "Investor Relations",
+    "whistleblower": "Hinweisgeber-Kanal",
+    "supportTitle": "Support",
+    "trackOrder": "Bestellung verfolgen",
+    "supportCenter": "Kundendienst",
+    "supportHours": "Servicezeiten",
+    "infoTitle": "Informationen",
+    "warranty": "Garantiebedingungen",
+    "exchangePolicy": "Umtauschrichtlinie",
+    "repairPolicy": "Reparaturrichtlinie",
+    "newsletterTitle": "Bleiben Sie auf dem Laufenden",
+    "newsletterSubtitle": "Registrieren Sie Ihre E-Mail, um exklusive Informationen zu erhalten",
+    "subscribe": "Anmelden",
+    "privacyNoticeStart": "Nach dem Lesen und Verstehen der",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "privacyNoticeEnd": "erkläre ich, dass ich über 18 Jahre alt bin",
+    "Nameshop": "Golden Charm",
+    "copyrigth": "Copyright © 2025, alle Rechte vorbehalten.",
+    "cnpj": "CNPJ: 00.000.000/0000-00 Adresse: Rua sem saída - Dierkich/LUXEMBOURG"
   }
 }

@@ -1,3 +1,6 @@
+VERCEL: https://golden-charm-mu.vercel.app/en
+
+
 ✅ Próximas Seções Essenciais
 🛒 Seção de Produtos em Destaque (Best Sellers / Mais Vendidos)
 

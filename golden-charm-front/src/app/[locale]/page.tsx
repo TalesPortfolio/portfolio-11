@@ -15,6 +15,8 @@ import {
 } from "../../../styles/homePageStyled";
 
 import { useTranslations } from "next-intl";
+import Footer from "../../../components/Footer";
+import CollectionShowcase from "../../../components/CollectionShowcase";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -43,8 +45,12 @@ export default function HomePage() {
         <Carousel />
       </Section>
       <Section>
+        <CollectionShowcase />
         <TestimonialSlider />
+         <Footer />
       </Section>
+
+     
     </>
   );
 }

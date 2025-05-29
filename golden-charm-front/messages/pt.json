@@ -31,7 +31,19 @@
     "title": "pagina de checkout"
   },
   "About": {
-    "title": "pagina de sobre"
+    "title": "Nossa história"
+  },
+  "Whistleblower": {
+    "title": "Canal de Denúncias",
+    "description": "Este canal é exclusivo para denúncias de condutas inadequadas, violações éticas, ou atividades suspeitas. As informações fornecidas serão tratadas com confidencialidade e, se desejado, de forma anônima.",
+    "name": "Nome (opcional)",
+    "email": "E-mail (opcional)",
+    "category": "Categoria",
+    "categoryPlaceholder": "Ex: Assédio, Corrupção, Fraude...",
+    "reportDescription": "Descrição da denúncia",
+    "reportPlaceholder": "Descreva detalhadamente sua denúncia...",
+    "anonymous": "Enviar de forma anônima",
+    "submit": "Enviar denúncia"
   },
   "Contact": {
     "title": "pagina de contact"
@@ -102,5 +114,43 @@
       "author": "Renata F.",
       "product": "Brincos Lux Rosé"
     }
+  },
+  "Collection": {
+    "item1": {
+      "title": "Pulseiras icônicas repaginadas",
+      "description": "Traga mais cor e estilo para o seu verão com nossa nova coleção de pulseiras vibrantes e sofisticadas."
+    },
+    "item2": {
+      "title": "O verão é melhor quando compartilhado",
+      "description": "Guarde seus momentos mais especiais com charms cheios de significado e inspirados no brilho dos dias ensolarados."
+    },
+    "item3": {
+      "title": "Brilhe sem limites",
+      "description": "Leve o calor e a energia do verão com você usando joias feitas para brilhar em qualquer ocasião."
+    },
+    "learnMore": "Ver mais"
+  },
+  "Footer": {
+    "companyTitle": "Nossa Empresa",
+    "aboutUs": "Sobre a Golden Charm",
+    "investors": "Relação com investidores",
+    "whistleblower": "Canal de Denúncias",
+    "supportTitle": "Atendimento",
+    "trackOrder": "Acompanhe o seu pedido",
+    "supportCenter": "Central de Atendimento",
+    "supportHours": "Horário de Atendimento",
+    "infoTitle": "Informações",
+    "warranty": "Política de garantia",
+    "exchangePolicy": "Política de Troca",
+    "repairPolicy": "Política de consertos",
+    "newsletterTitle": "Acompanhe nossas novidades",
+    "newsletterSubtitle": "Cadastre seu e-mail para receber informações exclusivas",
+    "subscribe": "Cadastrar",
+    "privacyNoticeStart": "Tendo compreendido a",
+    "privacyPolicy": "Política de Privacidade",
+    "privacyNoticeEnd": "declaro ter mais de 18 anos",
+    "Nameshop": "Golden Charm",
+    "copyrigth": "Copyright © 2025, todos os direitos reservados.",
+    "cnpj": "CNPJ: 00.000.000/0000-00 Endereço: Rua sem saída - Dierkich/LUXEMBOURG"
   }
 }

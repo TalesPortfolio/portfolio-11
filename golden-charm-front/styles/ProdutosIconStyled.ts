@@ -59,9 +59,7 @@ export const Img = styled.img`
   }
 `;
 
-export const DivIcon = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "bgColor",
-})<{ bgColor: string }>`
+export const DivIcon = styled.div`
   height: 150px;
   margin-top: 10px;
   border-radius: 20px;
@@ -69,7 +67,7 @@ export const DivIcon = styled.div.withConfig({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${({ bgColor }) => bgColor};
+  background-image: ${colorId.backgroundGradient2};
 `;
 
 export const Subtitle = styled.p`

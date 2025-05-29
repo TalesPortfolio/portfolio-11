@@ -31,7 +31,19 @@
     "title": "Page le paiement"
   },
   "About": {
-    "title": "page sobre"
+    "title": "Notre histoire"
+  },
+  "Whistleblower": {
+    "title": "Canal de Signalement",
+    "description": "Ce canal est réservé au signalement de comportements inappropriés, de violations éthiques ou d'activités suspectes. Les informations fournies seront traitées de manière confidentielle et, si vous le souhaitez, de façon anonyme.",
+    "name": "Nom (optionnel)",
+    "email": "E-mail (optionnel)",
+    "category": "Catégorie",
+    "categoryPlaceholder": "Ex : Harcèlement, Corruption, Fraude...",
+    "reportDescription": "Description du signalement",
+    "reportPlaceholder": "Décrivez votre signalement en détail...",
+    "anonymous": "Envoyer de façon anonyme",
+    "submit": "Envoyer le signalement"
   },
   "Contact": {
     "title": "page le contact"
@@ -48,7 +60,7 @@
     "pendant": "PENDENTIF"
   },
   "QuoteSection": {
-    "text": "Chaque création du <strong> charme d'or </strong> est un hommage au raffinement: où l'audace du design trouve la délicatesse de la main, et les joyaux les plus rares racontent des histoires qui font écho au-delà du temps.Notre nouvelle collection plonge dans des univers cachés, révélant des bijoux qui suscitent l'émotion et le mystère à chaque détail.",
+    "text": "Chaque création du <strong>Golden Charm</strong> est un hommage au raffinement: où l'audace du design trouve la délicatesse de la main, et les joyaux les plus rares racontent des histoires qui font écho au-delà du temps.Notre nouvelle collection plonge dans des univers cachés, révélant des bijoux qui suscitent l'émotion et le mystère à chaque détail.",
     "author": "—Luiz Ribeiro, Golden Charm High Jewelry Creative Director"
   },
 
@@ -103,5 +115,43 @@
       "author": "Renata F.",
       "product": "Boucles d'oreilles Lux Rosé"
     }
+  },
+  "Collection": {
+    "item1": {
+      "title": "Des bracelets classiques, réinventés",
+      "description": "Ajoutez une touche de couleur à votre été avec notre collection revisitée de bracelets emblématiques et lumineux."
+    },
+    "item2": {
+      "title": "Partagez l'essence de l'été",
+      "description": "Exprimez vos souvenirs d’été à travers des charms uniques, inspirés par les moments précieux et ensoleillés."
+    },
+    "item3": {
+      "title": "L’été dans toute sa liberté",
+      "description": "Emmenez l’esprit du soleil avec vous grâce à des bijoux éclatants conçus pour briller en toute occasion."
+    },
+    "learnMore": "Découvrir"
+  },
+  "Footer": {
+    "companyTitle": "Notre entreprise",
+    "aboutUs": "À propos de Golden Charm",
+    "investors": "Relations investisseurs",
+    "whistleblower": "Canal de dénonciation",
+    "supportTitle": "Assistance",
+    "trackOrder": "Suivre votre commande",
+    "supportCenter": "Service client",
+    "supportHours": "Heures d'ouverture",
+    "infoTitle": "Informations",
+    "warranty": "Politique de garantie",
+    "exchangePolicy": "Politique d'échange",
+    "repairPolicy": "Politique de réparation",
+    "newsletterTitle": "Restez informé",
+    "newsletterSubtitle": "Inscrivez-vous pour recevoir des informations exclusives",
+    "subscribe": "S'inscrire",
+    "privacyNoticeStart": "Ayant lu et compris la",
+    "privacyPolicy": "Politique de confidentialité",
+    "privacyNoticeEnd": "je déclare avoir plus de 18 ans",
+    "Nameshop": "Golden Charm",
+    "copyrigth": "Copyright © 2025, tous droits réservés.",
+    "cnpj": "CNPJ : 00.000.000/0000-00 Adresse : Rua sem saída - Dierkich/LUXEMBOURG"
   }
 }

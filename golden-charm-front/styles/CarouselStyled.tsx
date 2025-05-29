@@ -41,7 +41,7 @@ export const Card = styled.div`
   justify-content: center;   /* vertically centralize */
   text-align: center;
 
-  background-image: ${colorId.backgroundGradient};
+  background-image: ${colorId.backgroundGradient2};
   border: 1px solid #eee;
   padding: 16px;
   border-radius: 20px;

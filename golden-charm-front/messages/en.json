@@ -31,7 +31,19 @@
     "title": "Page the Checkout"
   },
   "About": {
-    "title": "about page"
+    "title": "Our history"
+  },
+  "Whistleblower": {
+    "title": "Whistleblower Channel",
+    "description": "This channel is dedicated to reporting inappropriate conduct, ethical violations, or suspicious activities. All information will be treated confidentially and, if desired, anonymously.",
+    "name": "Name (optional)",
+    "email": "Email (optional)",
+    "category": "Category",
+    "categoryPlaceholder": "e.g., Harassment, Corruption, Fraud...",
+    "reportDescription": "Report Description",
+    "reportPlaceholder": "Please describe your report in detail...",
+    "anonymous": "Submit anonymously",
+    "submit": "Submit report"
   },
   "Contact": {
     "title": "Page the Contact"
@@ -102,5 +114,43 @@
       "author": "Renata F.",
       "product": "Lux Rosé Earrings"
     }
+  },
+  "Collection": {
+    "item1": {
+      "title": "Classic Bracelets Reinvented",
+      "description": "Add vibrant color to your summer with our stylish new take on timeless river bracelets."
+    },
+    "item2": {
+      "title": "Celebrate Summer Moments",
+      "description": "Capture your favorite sunny memories with meaningful charms designed to reflect joyful moments."
+    },
+    "item3": {
+      "title": "Endless Summer Vibes",
+      "description": "Carry the sunshine with you in dazzling jewelry that glows as brightly as you do."
+    },
+    "learnMore": "Learn more"
+  },
+  "Footer": {
+    "companyTitle": "Our Company",
+    "aboutUs": "About Golden Charm",
+    "investors": "Investor Relations",
+    "whistleblower": "Whistleblower Channel",
+    "supportTitle": "Support",
+    "trackOrder": "Track your order",
+    "supportCenter": "Customer Service",
+    "supportHours": "Service Hours",
+    "infoTitle": "Information",
+    "warranty": "Warranty Policy",
+    "exchangePolicy": "Exchange Policy",
+    "repairPolicy": "Repair Policy",
+    "newsletterTitle": "Stay up to date",
+    "newsletterSubtitle": "Register your e-mail to receive exclusive information",
+    "subscribe": "Subscribe",
+    "privacyNoticeStart": "Having read and understood the",
+    "privacyPolicy": "Privacy Policy",
+    "privacyNoticeEnd": "I declare I am over 18 years old",
+    "Nameshop": "Golden Charm",
+    "copyrigth": "Copyright © 2025, all rights reserved.",
+    "cnpj": "CNPJ: 00.000.000/0000-00 Address: Rua sem saída - Dierkich/LUXEMBOURG"
   }
 }
