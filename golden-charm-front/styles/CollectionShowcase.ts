@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colorId } from "./colors";
 
 export const Container = styled.div`
   display: flex;
@@ -8,8 +9,13 @@ export const Container = styled.div`
   padding: 40px 20px;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    gap: 24px;
+    padding: 30px 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 10px;
+    gap: 16px;
   }
 `;
 
@@ -19,6 +25,17 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -31,16 +48,32 @@ export const Title = styled.h3`
   font-size: 1.2rem;
   margin: 16px 0 8px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Description = styled.p`
   font-size: 0.95rem;
   margin-bottom: 16px;
   line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `;
 
 export const Button = styled.button`
-  background-color: #111;
+  background-color: ${colorId.ButtonStyles};
   color: #fff;
   padding: 10px 18px;
   border: none;
@@ -50,6 +83,12 @@ export const Button = styled.button`
   transition: background 0.3s;
 
   &:hover {
-    background-color: #444;
+    background-color: ${colorId.ButtonStylesHover};
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 10px;
   }
 `;

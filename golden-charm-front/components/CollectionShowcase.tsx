@@ -1,11 +1,14 @@
 "use client";
 import React from "react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Container, Card, Image, Title, Description, Button } from "../styles/CollectionShowcase";
 
 export default function CollectionShowcase() {
   const t = useTranslations("Collection");
-
+  const params = useParams() as { locale: string };
+   const currentLocale = params.locale;
   return (
     <Container>
       <Card>
@@ -15,7 +18,11 @@ export default function CollectionShowcase() {
         />
         <Title>{t("item1.title")}</Title>
         <Description>{t("item1.description")}</Description>
-        <Button>{t("learnMore")}</Button>
+        <Button>
+          <Link href={`/${currentLocale}/product/bracelets`}>
+          {t("learnMore")}
+          </Link>
+          </Button>
       </Card>
 
       <Card>

@@ -17,7 +17,7 @@ const ProductsIcon = () => {
       <Section>
         <Link href={`/${locale}/product/bracelets`}>
           <DivIcon>
-            <Img src="/images/bracelet.png" alt="bracelet" />
+            <Img src="/images/bracelet/bracelet.png" alt="bracelet" />
             <Subtitle>{t("bracelet")}</Subtitle>
           </DivIcon>
         </Link>

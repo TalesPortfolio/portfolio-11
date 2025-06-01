@@ -15,7 +15,7 @@ export const Section = styled.section`
   gap: 1rem;
   justify-content: center;
   height: 100%;
-  background-color: ${colorId.backgroundPrimary2};
+  //background-color: ${colorId.backgroundPrimary2};
 
   @media (max-width: 768px) {
     gap: 1rem;
@@ -67,7 +67,7 @@ export const DivIcon = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: ${colorId.backgroundGradient2};
+  background-image: ${colorId.backgroundGradientCard};
 `;
 
 export const Subtitle = styled.p`
@@ -80,10 +80,10 @@ export const Subtitle = styled.p`
   }
 
   @media (max-width: 768px) {
-    color: ${colorId.gold};
+    color: ${colorId.accentPurple};
   }
 
   @media (max-width: 480px) {
-    color: ${colorId.gold};
+    ${colorId.accentPurple};
   }
 `;

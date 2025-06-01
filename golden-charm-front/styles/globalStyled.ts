@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import { colorId } from './colors'; // ajuste o caminho conforme sua estrutura
 
 export const GlobalStyles = createGlobalStyle`
-  /* Reset básico */
+    /* Reset básico */
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
   /* Fonte e cores padrão */
   html, body {
     height: 100%;
+    overflow-x: hidden; /* ← previne scroll horizontal */
     background-color: ${colorId.textLight};
     color: ${colorId.textMuted};
     font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

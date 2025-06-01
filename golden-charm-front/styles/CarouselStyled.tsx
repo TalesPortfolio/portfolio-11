@@ -7,6 +7,7 @@ export const H2 = styled.h2`
   padding-bottom: 20px;
   font-size: 3em;
   color: ${colorId.accentPurple};
+  
 
   @media (max-width: 768px) {
     font-size: 2.2em;
@@ -17,6 +18,7 @@ export const CarouselWrapper = styled.div`
   width: 60%;
   margin: 2rem auto;
   min-height: 400px;
+  
 
 
   /* Espaçamento entre cards */
@@ -40,8 +42,7 @@ export const Card = styled.div`
   align-items: center;       /* Centralize horizontally */
   justify-content: center;   /* vertically centralize */
   text-align: center;
-
-  background-image: ${colorId.backgroundGradient2};
+  background-image: ${colorId.backgroundGradientCard};
   border: 1px solid #eee;
   padding: 16px;
   border-radius: 20px;

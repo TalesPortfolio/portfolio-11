@@ -27,9 +27,13 @@ export const Section = styled.section`
   padding-top: 80px;
   background-color: ${colorId.backgroundPrimary2};
 
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
     height: auto;
-    padding: 4px;
+    padding: 2rem 1rem 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 0.5rem 0;
   }
 `;
 
@@ -98,6 +102,10 @@ export const Banner = styled.div`
     flex-direction: column-reverse;
     height: auto;
   }
+
+  @media (max-width: 480px) {
+    padding: 1rem 0;
+  }
 `;
 
 export const Img = styled.img`
@@ -120,14 +128,24 @@ export const BannerSection = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
+
+
 
 export const BannerText = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: ${colorId.accentPurple};
   padding: 2em;
   animation: ${fadeIn} 2s ease-in-out forwards;
   opacity: 0;
@@ -141,7 +159,7 @@ export const BannerText = styled.div`
     font-size: 3.5em;
     font-weight: 700;
     margin: 0 0 0.2em 0;
-    color: ${colorId.gold};
+    color: ${colorId.accentPurple};
   }
 
   h2 {
@@ -153,12 +171,12 @@ export const BannerText = styled.div`
   p {
     font-size: 1.2em;
     margin-bottom: 1.5em;
+    color: ${colorId.accentPurple};
   }
 
   button {
-    background: ${colorId.accentPurple};
-    border: 1px solid ${colorId.gold};
-    color: ${colorId.gold};
+    background: ${colorId.ButtonStyles};
+    color: ${colorId.textLight};
     font-weight: bold;
     font-size: 1em;
     padding: 0.7em 1.5em;
@@ -167,27 +185,50 @@ export const BannerText = styled.div`
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: ${colorId.gold};
-      color: ${colorId.backgroundPrimary};
-      border: 1px solid ${colorId.accentPink};
+      background-color: ${colorId.ButtonStylesHover};
     }
   }
 
   @media (max-width: 1024px) {
     width: 100%;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
 
     h1 {
       font-size: 2.5em;
     }
 
     h2 {
-      font-size: 1.6em;
+      font-size: 1.5em;
     }
 
     p {
-      font-size: 1.1em;
+      font-size: 1em;
+    }
+
+    button {
+      font-size: 0.9em;
+      padding: 0.6em 1.2em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+
+    p {
+      font-size: 0.95em;
+    }
+
+    button {
+      width: 100%;
     }
   }
 `;

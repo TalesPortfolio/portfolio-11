@@ -152,5 +152,43 @@
     "Nameshop": "Golden Charm",
     "copyrigth": "Copyright © 2025, alle Rechte vorbehalten.",
     "cnpj": "CNPJ: 00.000.000/0000-00 Adresse: Rua sem saída - Dierkich/LUXEMBOURG"
+  },
+  "ProductCard": {
+    "freeEngraving": "KOSTENLOSE GRAVUR",
+    "readyToShip": "VERSANDFERTIG!",
+    "moreDetails": "MEHR DETAILS",
+    "addToCart": "In den Warenkorb"
+  },
+  "CheckoutPage": {
+    "title": "Dein Warenkorb",
+    "empty": "Dein Warenkorb ist leer.",
+    "quantity": "Menge",
+    "price": "Preis",
+    "remove": "Entfernen",
+    "total": "Gesamt",
+    "checkout": "Kauf abschließen (simuliert)"
+  },
+  "BraceletsPage": {
+    "bannerAlt": "Armband-Banner",
+    "pageTitle": "Exklusive Golden Charm Armbänder"
+  },
+  "ProductDetailPage": {
+    "notFound": "Produkt nicht gefunden",
+    "category": "Kategorie",
+    "description": "Beschreibung",
+    "material": "Material",
+    "weight": "Gewicht",
+    "size": "Größe",
+    "color": "Farbe",
+    "stoneType": "Steintyp",
+    "price": "Preis",
+    "stock": "Lagerbestand",
+    "available": "Verfügbar",
+    "unavailable": "Nicht verfügbar",
+    "featured": "Hervorgehoben",
+    "yes": "Ja",
+    "no": "Nein",
+    "back": "Zurück",
+    "addToCart": "in den Warenkorb legen"
   }
 }

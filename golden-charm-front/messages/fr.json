@@ -153,5 +153,43 @@
     "Nameshop": "Golden Charm",
     "copyrigth": "Copyright © 2025, tous droits réservés.",
     "cnpj": "CNPJ : 00.000.000/0000-00 Adresse : Rua sem saída - Dierkich/LUXEMBOURG"
+  },
+  "ProductCard": {
+    "freeEngraving": "GRAVURE GRATUITE",
+    "readyToShip": "PRÊT À EXPÉDIER!",
+    "moreDetails": "PLUS DE DÉTAILS",
+    "addToCart": "Ajouter au Panier"
+  },
+  "CheckoutPage": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide.",
+    "quantity": "Quantité",
+    "price": "Prix",
+    "remove": "Supprimer",
+    "total": "Total",
+    "checkout": "Finaliser l'achat (simulé)"
+  },
+  "BraceletsPage": {
+    "bannerAlt": "Bannière de bracelets",
+    "pageTitle": "Bracelets Exclusifs Golden Charm"
+  },
+  "ProductDetailPage": {
+    "notFound": "Produit non trouvé",
+    "category": "Catégorie",
+    "description": "Description",
+    "material": "Matériau",
+    "weight": "Poids",
+    "size": "Taille",
+    "color": "Couleur",
+    "stoneType": "Type de pierre",
+    "price": "Prix",
+    "stock": "Stock",
+    "available": "Disponible",
+    "unavailable": "Indisponible",
+    "featured": "En vedette",
+    "yes": "Oui",
+    "no": "Non",
+    "back": "Retour",
+    "addToCart": "Ajouter au panier"
   }
 }

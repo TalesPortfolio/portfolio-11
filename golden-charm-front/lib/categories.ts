@@ -16,7 +16,7 @@ export interface Category {
     },
     {
       title: "BRACELET",
-      imageSrc: "/images/bracelet.png",
+      imageSrc: "/images/bracelet/bracelet.png",
       slug: "relogios",
     },
     {

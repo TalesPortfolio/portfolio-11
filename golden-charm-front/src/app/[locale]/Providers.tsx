@@ -1,9 +1,13 @@
 // src/app/[locale]/Providers.tsx
 'use client';
 
+//////////////////////////
+// Used for translation //
+//////////////////////////
+
 import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
-import { GlobalStyles } from '../../../styles/globalStyled'; // ajuste o caminho conforme sua estrutura
+import { GlobalStyles } from '../../../styles/globalStyled';
 
 interface ProvidersProps {
   locale: string;

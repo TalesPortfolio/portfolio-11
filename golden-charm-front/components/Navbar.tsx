@@ -1,8 +1,9 @@
-// components/AppNavbar.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useRouter, usePathname, useParams } from "next/navigation";
 import { FiSearch, FiShoppingCart, FiUser, FiHeart } from "react-icons/fi";
@@ -31,19 +32,21 @@ const localeLabels: Record<string, string> = {
 };
 
 const AppNavbar: React.FC = () => {
-  const t = useTranslations('AppNavbar');
+  const t = useTranslations("AppNavbar");
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams() as { locale: string };
   const currentLocale = params.locale;
 
-  // Load Bootstrap JS bundle on client only
-  // Initialize Bootstrap carousel on client side
+  const { cart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   useEffect(() => {
-    import('bootstrap/js/dist/carousel').then(({ default: Carousel }) => {
-      const el = document.getElementById('carouselExampleIndicators');
-      if (el) new Carousel(el, { interval: 2000, ride: 'carousel', wrap: true });
+    import("bootstrap/js/dist/carousel").then(({ default: Carousel }) => {
+      const el = document.getElementById("carouselExampleIndicators");
+      if (el)
+        new Carousel(el, { interval: 2000, ride: "carousel", wrap: true });
     });
   }, []);
 
@@ -63,15 +66,14 @@ const AppNavbar: React.FC = () => {
   return (
     <Header>
       <Link href={`/${currentLocale}/`}>
-      <Title>
-         <LogoImage
-          src="/images/logoGC4.png"
-          alt="Golden Charm Logo"
-          width={100}
-          height={50}
-        />
-      </Title>
-       
+        <Title>
+          <LogoImage
+            src="/images/logoGC4.png"
+            alt="Golden Charm Logo"
+            width={100}
+            height={50}
+          />
+        </Title>
       </Link>
 
       <IconGroup>
@@ -84,13 +86,13 @@ const AppNavbar: React.FC = () => {
           >
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <p>{t('paragraph-1')}</p>
+                <p>{t("paragraph-1")}</p>
               </div>
               <div className="carousel-item">
-              <p>{t('paragraph-2')}</p>
+                <p>{t("paragraph-2")}</p>
               </div>
               <div className="carousel-item">
-              <p>{t('paragraph-3')}</p>
+                <p>{t("paragraph-3")}</p>
               </div>
             </div>
           </div>
@@ -98,20 +100,20 @@ const AppNavbar: React.FC = () => {
 
         <NavList>
           <NavItem>
-            <Link href={`/${currentLocale}/`}>{t('navTitle-1')}</Link>
+            <Link href={`/${currentLocale}/`}>{t("navTitle-1")}</Link>
           </NavItem>
           <NavItem>
-            <Link href={`/${currentLocale}/product`}>{t('navTitle-2')}</Link>
+            <Link href={`/${currentLocale}/product`}>{t("navTitle-2")}</Link>
           </NavItem>
           <NavItem>
-            <Link href={`/${currentLocale}/about`}>{t('navTitle-3')}</Link>
+            <Link href={`/${currentLocale}/about`}>{t("navTitle-3")}</Link>
           </NavItem>
         </NavList>
 
         <SearchContainer onSubmit={handleSearch}>
           <SearchInput
             type="text"
-            placeholder={t('inputSearch')}
+            placeholder={t("inputSearch")}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -124,25 +126,45 @@ const AppNavbar: React.FC = () => {
           href={`/${currentLocale}/favorite`}
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
-          title={t('iconFavorite')}
+          title={t("iconFavorite")}
         >
           <FiHeart size={24} />
         </IconLink>
+
         <IconLink
           href={`/${currentLocale}/login`}
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
-          title={t('iconLogin')}
+          title={t("iconLogin")}
         >
           <FiUser size={24} />
         </IconLink>
+
         <IconLink
           href={`/${currentLocale}/checkout`}
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
-          title={t('iconCart')}
+          title={t("iconCart")}
+          style={{ position: "relative" }}
         >
           <FiShoppingCart size={24} />
+          {totalItems > 0 && (
+            <span
+              style={{
+                position: "absolute",
+                top: "-8px",
+                right: "-8px",
+                backgroundColor: "#ffffff",
+                color: "black",
+                borderRadius: "50%",
+                padding: "2px 6px",
+                fontSize: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              {totalItems}
+            </span>
+          )}
         </IconLink>
 
         <LanguageSelect value={currentLocale} onChange={changeLocale}>

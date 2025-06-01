@@ -24,7 +24,8 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(73, 69, 69, 0.5);
+  box-shadow: 4px 4px 12px rgba(193, 41, 115, 0.2); // baseado em #C12973
+
 
   @media (max-width: 768px) {
     padding: 1rem;
