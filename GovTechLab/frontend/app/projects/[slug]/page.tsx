@@ -15,11 +15,13 @@ export default async function ProjectPage({ params }: Props) {
   const name = rest.join(" ");
 
   if (!firstname || !name) notFound();
-
   const headersList = headers();
   const host = headersList.get("host");
+
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
+  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
+    `${firstname} ${name}`
+  )}`;
 
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) notFound();
@@ -82,9 +84,11 @@ export default async function ProjectPage({ params }: Props) {
                 </td>
                 <td data-label="Authors">
                   <ul>
-                    {project.authors.split(",").map((author: string, i: number) => (
-                      <li key={i}>{author.trim()}</li>
-                    ))}
+                    {project.authors
+                      .split(",")
+                      .map((author: string, i: number) => (
+                        <li key={i}>{author.trim()}</li>
+                      ))}
                   </ul>
                 </td>
               </tr>
@@ -99,7 +103,9 @@ export default async function ProjectPage({ params }: Props) {
         </tbody>
       </Table>
 
-      <h2 style={{ marginTop: "3rem", color: "#222" }}>Mentioned in Projects (via VI field)</h2>
+      <h2 style={{ marginTop: "3rem", color: "#222" }}>
+        Mentioned in Projects (via VI field)
+      </h2>
       <Table>
         <thead>
           <tr>
