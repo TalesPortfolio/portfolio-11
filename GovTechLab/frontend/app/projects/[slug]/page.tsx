@@ -3,15 +3,21 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function ProjectPage({ params }: Props) {
   const slug = params.slug;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
 
   if (!firstname || !name) notFound();
 
-  const headersList = headers(); // ❗ não usar await
-  const host = (await headersList).get("host");
+  const headersList = headers();
+  const host = headersList.get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
 
