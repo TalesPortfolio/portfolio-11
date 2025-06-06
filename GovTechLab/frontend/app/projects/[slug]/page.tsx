@@ -3,11 +3,13 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+type ProjectPageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const slug = params.slug;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
