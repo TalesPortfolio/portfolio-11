@@ -10,8 +10,8 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
   if (!firstname || !name) notFound();
 
-  const headersList = headers(); // ❗ Não usar `await` aqui — já é síncrono
-  const host = headersList.get("host");
+  const headersList = headers(); // ❗ não usar await
+  const host = (await headersList).get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
 
@@ -76,8 +76,8 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                 </td>
                 <td data-label="Authors">
                   <ul>
-                    {project.authors.split(",").map((author: string, index: number) => (
-                      <li key={index}>{author.trim()}</li>
+                    {project.authors.split(",").map((author: string, i: number) => (
+                      <li key={i}>{author.trim()}</li>
                     ))}
                   </ul>
                 </td>
