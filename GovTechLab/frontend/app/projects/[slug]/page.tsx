@@ -10,7 +10,8 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
   if (!firstname || !name) notFound();
 
-  const host = (await headers()).get("host");
+  const headersList = headers(); // ❗ Não usar `await` aqui — já é síncrono
+  const host = headersList.get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
 
@@ -47,7 +48,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         </Link>
       </div>
 
-      <h1 style={{ fontSize: "2rem", color: "#003366" }}>
+      <h1 style={{ fontSize: "2rem", color: "#003366", textAlign: "center" }}>
         All Projects of {firstname} {name}
       </h1>
 
@@ -73,7 +74,13 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                 >
                   {project.status}
                 </td>
-                <td data-label="Authors">{project.authors}</td>
+                <td data-label="Authors">
+                  <ul>
+                    {project.authors.split(",").map((author: string, index: number) => (
+                      <li key={index}>{author.trim()}</li>
+                    ))}
+                  </ul>
+                </td>
               </tr>
             ))
           ) : (
@@ -86,9 +93,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         </tbody>
       </Table>
 
-      <h2 style={{ marginTop: "3rem", color: "#222" }}>
-        Mentioned in Projects (via VI field)
-      </h2>
+      <h2 style={{ marginTop: "3rem", color: "#222" }}>Mentioned in Projects (via VI field)</h2>
       <Table>
         <thead>
           <tr>
