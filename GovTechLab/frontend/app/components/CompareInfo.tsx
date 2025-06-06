@@ -1,3 +1,5 @@
+'use client'
+
 import styled from "styled-components";
 
 const InfoBox = styled.div`
@@ -10,6 +12,18 @@ const InfoBox = styled.div`
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    border-left: 4px solid #893040;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
 `;
 
 export default function CompareInfo() {

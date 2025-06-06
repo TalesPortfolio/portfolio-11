@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
+import { Wrapper, Table } from "@/styles/ProjectPage.styles"; 
 
 interface Props {
   params: { slug: string };
@@ -13,13 +14,11 @@ export default async function ProjectPage({ params }: Props) {
 
   if (!firstname || !name) notFound();
 
-  // ✅ Obtém o domínio atual da requisição
-  const host = headers().get("host");
+  const host = (await headers()).get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
 
   const res = await fetch(url, { cache: "no-cache" });
-
   if (!res.ok) notFound();
 
   const data = await res.json();
@@ -28,25 +27,23 @@ export default async function ProjectPage({ params }: Props) {
 
   const getStatusColor = (status: string) => {
     const lower = status.toLowerCase();
-    if (lower.includes("publie") || lower.includes("publié")) return "#28a745";
-    if (lower.includes("rejete") || lower.includes("rejeté")) return "#dc3545";
+    if (lower.includes("publie")) return "#28a745";
+    if (lower.includes("rejete")) return "#dc3545";
     return "#6c757d";
   };
 
   return (
-    <main style={{ padding: "2rem", maxWidth: "1000px", margin: "0 auto" }}>
+    <Wrapper>
       <div style={{ marginBottom: "1rem" }}>
         <Link href="/">
-          <button
-            style={{
-              padding: "0.5rem 1rem",
-              backgroundColor: "#0d6efd",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
+          <button style={{
+            padding: "0.5rem 1rem",
+            backgroundColor: "#0d6efd",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}>
             ← Back to Main Page
           </button>
         </Link>
@@ -57,97 +54,66 @@ export default async function ProjectPage({ params }: Props) {
       </h1>
 
       <h2 style={{ marginTop: "2rem", color: "#222" }}>As Author</h2>
-      <table style={{ width: "100%", marginTop: "1rem", borderCollapse: "collapse" }}>
+      <Table>
         <thead>
-          <tr style={{ background: "#f0f0f0" }}>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Status</th>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Authors</th>
+          <tr>
+            <th>Status</th>
+            <th>Authors</th>
           </tr>
         </thead>
         <tbody>
           {projects.length > 0 ? (
             projects.map((project: any, idx: number) => (
               <tr key={idx}>
-                <td
-                  style={{
-                    border: "1px solid #ccc",
-                    padding: "0.5rem",
-                    color: "#fff",
-                    backgroundColor: getStatusColor(project.status),
-                    fontWeight: "bold",
-                    textTransform: "capitalize",
-                  }}
-                >
+                <td data-label="Status" style={{
+                  backgroundColor: getStatusColor(project.status),
+                  color: "#fff", fontWeight: "bold"
+                }}>
                   {project.status}
                 </td>
-                <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                  {project.authors}
-                </td>
+                <td data-label="Authors">{project.authors}</td>
               </tr>
             ))
           ) : (
-            <tr>
-              <td colSpan={2} style={{ padding: "1rem", textAlign: "center" }}>
-                No authored projects found.
-              </td>
-            </tr>
+            <tr><td colSpan={2} style={{ textAlign: "center" }}>No authored projects found.</td></tr>
           )}
         </tbody>
-      </table>
+      </Table>
 
       <h2 style={{ marginTop: "3rem", color: "#222" }}>Mentioned in Projects (via VI field)</h2>
-      <table style={{ width: "100%", marginTop: "1rem", borderCollapse: "collapse" }}>
+      <Table>
         <thead>
-          <tr style={{ background: "#f0f0f0" }}>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Number</th>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Type</th>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Deposit Date</th>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Evacuation Date</th>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Status</th>
-            <th style={{ border: "1px solid #ccc", padding: "0.5rem" }}>Mention (VI)</th>
+          <tr>
+            <th>Number</th>
+            <th>Type</th>
+            <th>Deposit Date</th>
+            <th>Evacuation Date</th>
+            <th>Status</th>
+            <th>Mention (VI)</th>
           </tr>
         </thead>
         <tbody>
           {viProjects.length > 0 ? (
             viProjects.map((project: any, idx: number) => (
               <tr key={idx}>
-                <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                  {project.number}
-                </td>
-                <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                  {project.type}
-                </td>
-                <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                  {project.deposit_date}
-                </td>
-                <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                  {project.evacuation_date}
-                </td>
-                <td
-                  style={{
-                    border: "1px solid #ccc",
-                    padding: "0.5rem",
-                    backgroundColor: getStatusColor(project.status),
-                    color: "#fff",
-                    fontWeight: "bold",
-                  }}
-                >
+                <td data-label="Number">{project.number}</td>
+                <td data-label="Type">{project.type}</td>
+                <td data-label="Deposit">{project.deposit_date}</td>
+                <td data-label="Evacuation">{project.evacuation_date}</td>
+                <td data-label="Status" style={{
+                  backgroundColor: getStatusColor(project.status),
+                  color: "#fff", fontWeight: "bold"
+                }}>
                   {project.status}
                 </td>
-                <td style={{ border: "1px solid #ccc", padding: "0.5rem" }}>
-                  {project.title}
-                </td>
+                <td data-label="VI">{project.title}</td>
               </tr>
             ))
           ) : (
-            <tr>
-              <td colSpan={6} style={{ padding: "1rem", textAlign: "center" }}>
-                No projects mentioning this deputy found.
-              </td>
-            </tr>
+            <tr><td colSpan={6} style={{ textAlign: "center" }}>No projects mentioning this deputy found.</td></tr>
           )}
         </tbody>
-      </table>
-    </main>
+      </Table>
+    </Wrapper>
   );
 }

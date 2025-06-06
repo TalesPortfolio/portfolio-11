@@ -60,7 +60,6 @@ export const Card = styled.div`
   flex-direction: row;
   align-items: flex-start;
   gap: 2rem;
-  overflow-x: auto; /* habilita scroll se necessário */
   background: ${({ theme }) => theme.colors.card || "#fff"};
   padding: 1.5rem;
   border-radius: 12px;
@@ -70,10 +69,12 @@ export const Card = styled.div`
   margin: 0 auto;
 
   @media (max-width: 1024px) {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 `;
+
 
 
 export const InfoColumn = styled.div`
@@ -83,7 +84,14 @@ export const InfoColumn = styled.div`
   min-width: 200px;
   align-items: center;
   text-align: center;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: none;
+  }
 `;
+
 
 export const PartyBadge = styled.span`
   background-color: #351219; /* primary-160 */
@@ -113,7 +121,14 @@ export const PhotoGrid = styled.div`
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
+
 
 export const PhotoCard = styled.div`
   display: flex;
@@ -146,4 +161,27 @@ export const PhotoCard = styled.div`
     color: #351219;
     font-weight: 500;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 400px;
+    padding: 0.5rem 1rem;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+      text-align: left;
+    }
+  }
 `;
+
