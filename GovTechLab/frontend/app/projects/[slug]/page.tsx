@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
-import { Wrapper, Table } from "@/styles/ProjectPage.styles"; 
+import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
-interface Props {
+export default async function ProjectPage({
+  params,
+}: {
   params: { slug: string };
-}
-
-export default async function ProjectPage({ params }: Props) {
+}) {
   const slug = params.slug;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
@@ -16,7 +16,9 @@ export default async function ProjectPage({ params }: Props) {
 
   const host = (await headers()).get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
+  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
+    `${firstname} ${name}`
+  )}`;
 
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) notFound();
@@ -36,14 +38,16 @@ export default async function ProjectPage({ params }: Props) {
     <Wrapper>
       <div style={{ marginBottom: "1rem" }}>
         <Link href="/">
-          <button style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#0d6efd",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}>
+          <button
+            style={{
+              padding: "0.5rem 1rem",
+              backgroundColor: "#0d6efd",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
             ← Back to Main Page
           </button>
         </Link>
@@ -65,22 +69,32 @@ export default async function ProjectPage({ params }: Props) {
           {projects.length > 0 ? (
             projects.map((project: any, idx: number) => (
               <tr key={idx}>
-                <td data-label="Status" style={{
-                  backgroundColor: getStatusColor(project.status),
-                  color: "#fff", fontWeight: "bold"
-                }}>
+                <td
+                  data-label="Status"
+                  style={{
+                    backgroundColor: getStatusColor(project.status),
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
+                >
                   {project.status}
                 </td>
                 <td data-label="Authors">{project.authors}</td>
               </tr>
             ))
           ) : (
-            <tr><td colSpan={2} style={{ textAlign: "center" }}>No authored projects found.</td></tr>
+            <tr>
+              <td colSpan={2} style={{ textAlign: "center" }}>
+                No authored projects found.
+              </td>
+            </tr>
           )}
         </tbody>
       </Table>
 
-      <h2 style={{ marginTop: "3rem", color: "#222" }}>Mentioned in Projects (via VI field)</h2>
+      <h2 style={{ marginTop: "3rem", color: "#222" }}>
+        Mentioned in Projects (via VI field)
+      </h2>
       <Table>
         <thead>
           <tr>
@@ -100,17 +114,25 @@ export default async function ProjectPage({ params }: Props) {
                 <td data-label="Type">{project.type}</td>
                 <td data-label="Deposit">{project.deposit_date}</td>
                 <td data-label="Evacuation">{project.evacuation_date}</td>
-                <td data-label="Status" style={{
-                  backgroundColor: getStatusColor(project.status),
-                  color: "#fff", fontWeight: "bold"
-                }}>
+                <td
+                  data-label="Status"
+                  style={{
+                    backgroundColor: getStatusColor(project.status),
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
+                >
                   {project.status}
                 </td>
                 <td data-label="VI">{project.title}</td>
               </tr>
             ))
           ) : (
-            <tr><td colSpan={6} style={{ textAlign: "center" }}>No projects mentioning this deputy found.</td></tr>
+            <tr>
+              <td colSpan={6} style={{ textAlign: "center" }}>
+                No projects mentioning this deputy found.
+              </td>
+            </tr>
           )}
         </tbody>
       </Table>
