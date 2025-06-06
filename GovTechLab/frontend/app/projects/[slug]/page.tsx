@@ -1,14 +1,18 @@
+// app/projects/[slug]/page.tsx
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
-import { JSX } from "react";
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<JSX.Element> {
+// Essa é a tipagem correta esperada pelo Next.js App Router
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function ProjectPage({ params }: PageProps) {
   const slug = params.slug;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
