@@ -1,19 +1,16 @@
-// app/projects/[slug]/page.tsx
-
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
+import type { Metadata } from "next";
+import type { PageProps } from "next";
 
-// Essa é a tipagem correta esperada pelo Next.js App Router
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
+export const metadata: Metadata = {
+  title: "Projetos do Deputado",
+};
 
 export default async function ProjectPage({ params }: PageProps) {
-  const slug = params.slug;
+  const slug = params.slug as string;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
 
