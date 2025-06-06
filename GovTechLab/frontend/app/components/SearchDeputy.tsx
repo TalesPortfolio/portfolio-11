@@ -78,7 +78,7 @@ export default function SearchDeputy() {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/deputy/photos");
+        const res = await axios.get("/api/deputy/photos");
         setAllDeputiesPhotos(res.data);
       } catch (err) {
         console.error("Erro ao buscar fotos dos deputados:", err);
@@ -97,9 +97,10 @@ export default function SearchDeputy() {
       }
       const name = parts.join(" ");
 
-      const res = await axios.get("http://localhost:3001/deputy", {
-        params: { name },
-      });
+      const res = await axios.get("/api/deputy", {
+  params: { name },
+});
+
 
       const alreadyExists = deputies.find(
         (d) => d.name === res.data.name && d.firstname === res.data.firstname
@@ -195,158 +196,142 @@ export default function SearchDeputy() {
     return chartType === "pie" ? renderPie(fullTitle, data) : renderBar(fullTitle, data);
   };
 
-return (
-  <Container>
-    <h1>Comparaison des Députés</h1>
-    <CompareInfo />
+  return (
+    <Container>
+      <h1>Comparaison des Députés</h1>
+      <CompareInfo />
 
-    <InputGroup>
-      <Input
-        placeholder="Nom complet (Prénom Nom)"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <Button style={{ backgroundColor: "#893040" }} onClick={fetchDeputy}>
-        Rechercher
-      </Button>
-      <ToggleButton
-        onClick={() => setChartType(chartType === "pie" ? "bar" : "pie")}
-      >
-        {chartType === "pie"
-          ? "Basculer en Diagramme en Barres"
-          : "Basculer en Diagramme Circulaire"}
-      </ToggleButton>
-      <Button
-        style={{
-          backgroundColor: "#dc3545",
-          marginLeft: "0.5rem",
-          color: "#fff",
-        }}
-        onClick={clearDeputies}
-      >
-        Tout Effacer
-      </Button>
-    </InputGroup>
-
-    {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
-
-    <DeputyGrid>
-      {deputies.map((data, index) => (
-        <Card key={index}>
-          <InfoColumn>
-            {data.photo && (
-              <img
-                src={data.photo}
-                alt={`${data.firstname} ${data.name}`}
-                style={{
-                  width: "100px",
-                  height: "auto",
-                  borderRadius: "8px",
-                  objectFit: "cover",
-                  marginBottom: "0.5rem",
-                }}
-              />
-            )}
-            <h2>{data.firstname} {data.name}</h2>
-            {data.start_date && (
-              <p style={{ fontSize: "0.85rem", color: "#5c202b" }}>
-                Début de mandat: {data.start_date}
-              </p>
-            )}
-            <p>
-              <strong style={{ color: "#003366" }}>Party:</strong>{" "}
-              <span style={{ backgroundColor: "#003366", color: "#fff", padding: "2px 6px", borderRadius: "5px" }}>
-                {data.political_party}
-              </span>
-            </p>
-            {data.political_group && (
-              <p>
-                <strong>Group:</strong> {data.political_group}
-              </p>
-            )}
-            <Link href={`/projects/${encodeURIComponent(`${data.firstname}-${data.name}`)}`}>
-              <Button style={{ backgroundColor: "#0d6efd", marginTop: "0.5rem" }}>
-                View Projects
-              </Button>
-            </Link>
-          </InfoColumn>
-
-          <ChartRow>
-            {renderChart(
-              "Présences totales",
-              Object.entries(data.presence.status).map(([k, v]) => ({
-                name: k,
-                value: v,
-              }))
-            )}
-            {renderChart("Projets totaux", [
-              {
-                name: "publie",
-                value: data.laws.details.filter((p: any) =>
-                  p.status?.toLowerCase().includes("publie")
-                ).length,
-              },
-              {
-                name: "retire",
-                value: data.laws.details.filter((p: any) =>
-                  p.status?.toLowerCase().includes("retire")
-                ).length,
-              },
-              {
-                name: "rejete",
-                value: data.laws.details.filter((p: any) =>
-                  p.status?.toLowerCase().includes("rejete")
-                ).length,
-              },
-              {
-                name: "autres",
-                value: data.laws.details.filter((p: any) => {
-                  const s = p.status?.toLowerCase() || "";
-                  return (
-                    !s.includes("publie") &&
-                    !s.includes("retire") &&
-                    !s.includes("rejete")
-                  );
-                }).length,
-              },
-            ])}
-            {renderChart("Votes totaux", [
-              { name: "oui", value: data.votes.stats.oui },
-              { name: "non", value: data.votes.stats.non },
-              { name: "abstention", value: data.votes.stats.abstention },
-            ])}
-          </ChartRow>
-        </Card>
-      ))}
-    </DeputyGrid>
-
-    <DeputyList
-      deputies={deputies.map((d) => ({
-        firstname: d.firstname,
-        name: d.name,
-        photo: d.photo || "",
-      }))}
-      onSelect={(fullName) => {
-        setSearchTerm(fullName);
-        fetchDeputy();
-      }}
-    />
-
-    <h2 style={{ marginTop: "2rem", textAlign: "center" }}>Tous les Députés</h2>
-    <PhotoGrid>
-      {allDeputiesPhotos.map((dep, i) => (
-        <PhotoCard
-          key={i}
-          onClick={() => {
-            setSearchTerm(dep.name);
-            fetchDeputy();
-          }}
+      <InputGroup>
+        <Input
+          placeholder="Nom complet (Prénom Nom)"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <Button style={{ backgroundColor: "#893040" }} onClick={fetchDeputy}>
+          Rechercher
+        </Button>
+        <ToggleButton onClick={() => setChartType(chartType === "pie" ? "bar" : "pie")}>
+          {chartType === "pie"
+            ? "Basculer en Diagramme en Barres"
+            : "Basculer en Diagramme Circulaire"}
+        </ToggleButton>
+        <Button
+          style={{ backgroundColor: "#dc3545", marginLeft: "0.5rem", color: "#fff" }}
+          onClick={clearDeputies}
         >
-          <img src={dep.img} alt={dep.name} />
-          <p>{dep.name}</p>
-        </PhotoCard>
-      ))}
-    </PhotoGrid>
-  </Container>
-);
+          Tout Effacer
+        </Button>
+      </InputGroup>
+
+      {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+
+      <DeputyGrid>
+        {deputies.map((data, index) => (
+          <Card key={index}>
+            <InfoColumn>
+              {data.photo && (
+                <img
+                  src={data.photo}
+                  alt={`${data.firstname} ${data.name}`}
+                  style={{
+                    width: "100px",
+                    height: "auto",
+                    borderRadius: "8px",
+                    objectFit: "cover",
+                    marginBottom: "0.5rem",
+                  }}
+                />
+              )}
+              <h2>{data.firstname} {data.name}</h2>
+              {data.start_date && (
+                <p style={{ fontSize: "0.85rem", color: "#5c202b" }}>
+                  Début de mandat: {data.start_date}
+                </p>
+              )}
+              <p>
+                <strong style={{ color: "#003366" }}>Party:</strong>{" "}
+                <span style={{ backgroundColor: "#003366", color: "#fff", padding: "2px 6px", borderRadius: "5px" }}>
+                  {data.political_party}
+                </span>
+              </p>
+              {data.political_group && (
+                <p>
+                  <strong>Group:</strong> {data.political_group}
+                </p>
+              )}
+              <Link href={`/projects/${encodeURIComponent(`${data.firstname}-${data.name}`)}`}>
+                <Button style={{ backgroundColor: "#0d6efd", marginTop: "0.5rem" }}>
+                  View Projects
+                </Button>
+              </Link>
+            </InfoColumn>
+
+            <ChartRow>
+              {renderChart(
+                "Présences totales",
+                Object.entries(data.presence.status).map(([k, v]) => ({
+                  name: k,
+                  value: v,
+                }))
+              )}
+              {renderChart("Projets totaux", [
+                {
+                  name: "publie",
+                  value: data.laws.details.filter((p: any) => p.status?.toLowerCase().includes("publie")).length,
+                },
+                {
+                  name: "retire",
+                  value: data.laws.details.filter((p: any) => p.status?.toLowerCase().includes("retire")).length,
+                },
+                {
+                  name: "rejete",
+                  value: data.laws.details.filter((p: any) => p.status?.toLowerCase().includes("rejete")).length,
+                },
+                {
+                  name: "autres",
+                  value: data.laws.details.filter((p: any) => {
+                    const s = p.status?.toLowerCase() || "";
+                    return !s.includes("publie") && !s.includes("retire") && !s.includes("rejete");
+                  }).length,
+                },
+              ])}
+              {renderChart("Votes totaux", [
+                { name: "oui", value: data.votes.stats.oui },
+                { name: "non", value: data.votes.stats.non },
+                { name: "abstention", value: data.votes.stats.abstention },
+              ])}
+            </ChartRow>
+          </Card>
+        ))}
+      </DeputyGrid>
+
+      <DeputyList
+        deputies={deputies.map((d) => ({
+          firstname: d.firstname,
+          name: d.name,
+          photo: d.photo || "",
+        }))}
+        onSelect={(fullName) => {
+          setSearchTerm(fullName);
+          fetchDeputy();
+        }}
+      />
+
+      <h2 style={{ marginTop: "2rem", textAlign: "center" }}>Tous les Députés</h2>
+      <PhotoGrid>
+        {allDeputiesPhotos.map((dep, i) => (
+          <PhotoCard
+            key={i}
+            onClick={() => {
+              setSearchTerm(dep.name);
+              fetchDeputy();
+            }}
+          >
+            <img src={dep.img} alt={dep.name} />
+            <p>{dep.name}</p>
+          </PhotoCard>
+        ))}
+      </PhotoGrid>
+    </Container>
+  );
 }

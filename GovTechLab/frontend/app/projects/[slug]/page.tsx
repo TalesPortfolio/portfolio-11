@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { headers } from "next/headers";
 
 interface Props {
   params: { slug: string };
@@ -12,9 +13,12 @@ export default async function ProjectPage({ params }: Props) {
 
   if (!firstname || !name) notFound();
 
-  const res = await fetch(`http://localhost:3001/deputy?name=${firstname} ${name}`, {
-    cache: "no-cache",
-  });
+  // ✅ Obtém o domínio atual da requisição
+  const host = headers().get("host");
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
+
+  const res = await fetch(url, { cache: "no-cache" });
 
   if (!res.ok) notFound();
 
@@ -52,7 +56,6 @@ export default async function ProjectPage({ params }: Props) {
         All Projects of {firstname} {name}
       </h1>
 
-      {/* Tabela de projetos onde o deputado é autor */}
       <h2 style={{ marginTop: "2rem", color: "#222" }}>As Author</h2>
       <table style={{ width: "100%", marginTop: "1rem", borderCollapse: "collapse" }}>
         <thead>
@@ -92,7 +95,6 @@ export default async function ProjectPage({ params }: Props) {
         </tbody>
       </table>
 
-      {/* Tabela de projetos onde o deputado é citado no campo "vi" */}
       <h2 style={{ marginTop: "3rem", color: "#222" }}>Mentioned in Projects (via VI field)</h2>
       <table style={{ width: "100%", marginTop: "1rem", borderCollapse: "collapse" }}>
         <thead>
