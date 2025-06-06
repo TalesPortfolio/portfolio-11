@@ -3,13 +3,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
-type ProjectPageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const slug = params.slug;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
@@ -18,9 +12,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const host = (await headers()).get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
-    `${firstname} ${name}`
-  )}`;
+  const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(`${firstname} ${name}`)}`;
 
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) notFound();
