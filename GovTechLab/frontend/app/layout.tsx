@@ -1,6 +1,5 @@
 "use client";
-
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/themes";
 import GlobalStyle from "../styles/global";

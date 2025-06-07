@@ -97,10 +97,7 @@ export default function SearchDeputy() {
       }
       const name = parts.join(" ");
 
-      const res = await axios.get("/api/deputy", {
-  params: { name },
-});
-
+      const res = await axios.get("/api/deputy", { params: { name } });
 
       const alreadyExists = deputies.find(
         (d) => d.name === res.data.name && d.firstname === res.data.firstname
@@ -243,20 +240,20 @@ export default function SearchDeputy() {
                 />
               )}
               <h2>{data.firstname} {data.name}</h2>
-              {data.start_date && (
+              {data.startDate && (
                 <p style={{ fontSize: "0.85rem", color: "#5c202b" }}>
-                  Début de mandat: {data.start_date}
+                  Début de mandat: {data.startDate}
                 </p>
               )}
               <p>
                 <strong style={{ color: "#003366" }}>Party:</strong>{" "}
                 <span style={{ backgroundColor: "#003366", color: "#fff", padding: "2px 6px", borderRadius: "5px" }}>
-                  {data.political_party}
+                  {data.politicalParty}
                 </span>
               </p>
-              {data.political_group && (
+              {data.politicalGroup && (
                 <p>
-                  <strong>Group:</strong> {data.political_group}
+                  <strong>Group:</strong> {data.politicalGroup}
                 </p>
               )}
               <Link href={`/projects/${encodeURIComponent(`${data.firstname}-${data.name}`)}`}>

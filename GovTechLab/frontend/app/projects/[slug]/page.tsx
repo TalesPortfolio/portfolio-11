@@ -11,14 +11,18 @@ type Props = {
 export default async function ProjectPage({ params }: Props) {
   // Aguardar a resolução do Promise para obter o slug
   const { slug } = await params;
-  const [firstname, ...rest] = slug.split("-");
+
+  // ✅ Correção aplicada aqui
+  const decodedSlug = decodeURIComponent(slug);
+  const [firstname, ...rest] = decodedSlug.split("-");
   const name = rest.join(" ");
 
   if (!firstname || !name) notFound();
+
   const headersList = headers();
   const host = (await headersList).get("host");
-
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
     `${firstname} ${name}`
   )}`;
@@ -141,7 +145,7 @@ export default async function ProjectPage({ params }: Props) {
           ) : (
             <tr>
               <td colSpan={6} style={{ textAlign: "center" }}>
-                Nenhum projeto mencionando este deputado encontrado.
+                Aucun projet mentionnant ce député trouvé.
               </td>
             </tr>
           )}

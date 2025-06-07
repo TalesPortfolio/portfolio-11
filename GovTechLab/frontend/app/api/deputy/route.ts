@@ -1,11 +1,9 @@
-// app/api/deputy/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
+import { cachedData } from "@/lib/jsonCache";
 import {
   normalize,
   generateNameVariations,
-  isDeputyMatch,
-  loadExcel
+  isDeputyMatch
 } from "@/lib/data";
 import type {
   DeputyRow,
@@ -17,7 +15,9 @@ import photoMap from "@/db/deputy-photos.json";
 
 export async function GET(req: NextRequest) {
   const name = req.nextUrl.searchParams.get("name")?.trim();
-  if (!name) return NextResponse.json({ error: "Name is required" }, { status: 400 });
+  if (!name) {
+    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+  }
 
   const [firstName, ...rest] = name.split(" ");
   const lastName = rest.join(" ");
@@ -27,40 +27,42 @@ export async function GET(req: NextRequest) {
 
   const nameVariations = generateNameVariations(lastName, firstName);
 
-  const [
-    dataDeputies,
-    dataPresence,
-    dataVotes,
-    dataLaws
-  ] = await Promise.all([
-    loadExcel<DeputyRow>("105-depute.xlsx"),
-    loadExcel<PresenceRow>("107-presence-seance-publique.xlsx"),
-    loadExcel<VoteRow>("109-votes.xlsx"),
-    loadExcel<LawRow>("112-texte-loi.xlsx"),
-  ]);
+  const dataDeputies = cachedData.deputies as DeputyRow[];
+  const dataPresence = cachedData.presence as PresenceRow[];
+  const dataVotes = cachedData.votes as VoteRow[];
+  const dataLaws = cachedData.laws as LawRow[];
 
-  // Verifica presença pelo nome completo
-  const matchedPresence = dataPresence.filter((row) => isDeputyMatch(row, nameVariations));
+  const matchedPresence = dataPresence.filter((row) =>
+    isDeputyMatch(row, nameVariations)
+  );
   if (matchedPresence.length === 0) {
     return NextResponse.json({ error: "Deputy not found" }, { status: 404 });
   }
 
-  const ref = matchedPresence.find((r) => r.political_party || r.political_group);
-  const party = ref?.political_party || "Not informed";
-  const group = ref?.political_group || null;
+  const ref = matchedPresence.find((r) => r.politicalParty || r.politicalGroup);
+  const party = ref?.politicalParty || "Not informed";
+  const group = ref?.politicalGroup || null;
 
-  const presenceStats = { present: 0, excused: 0, foreign_mission: 0, absent: 0 };
+  const presenceStats = {
+    present: 0,
+    excused: 0,
+    foreign_mission: 0,
+    absent: 0,
+  };
+
   matchedPresence.forEach((r) => {
-    const s = normalize(r.meeting_presence);
+    const s = normalize(r.meetingPresence);
     if (presenceStats[s as keyof typeof presenceStats] !== undefined) {
       presenceStats[s as keyof typeof presenceStats]++;
     }
   });
 
-  const matchedVotes = dataVotes.filter((row) => isDeputyMatch(row, nameVariations));
+  const matchedVotes = dataVotes.filter((row) =>
+    isDeputyMatch(row, nameVariations)
+  );
   const voteStats = matchedVotes.reduce(
     (acc, v) => {
-      const res = normalize(v.vote_result);
+      const res = normalize(v.voteResult);
       if (res === "oui") acc.oui++;
       else if (res === "non") acc.non++;
       else if (res === "abstention") acc.abstention++;
@@ -70,7 +72,7 @@ export async function GET(req: NextRequest) {
   );
 
   const matchedLaws = dataLaws.filter((row) => {
-    const authors = normalize(row.law_authors || "");
+    const authors = normalize(row.lawAuthors || "");
     return nameVariations.some((v) => authors.includes(v));
   });
 
@@ -93,46 +95,46 @@ export async function GET(req: NextRequest) {
     name: lastName,
     firstname: firstName,
     photo: imageUrl,
-    start_date: deputyInfo?.start_date || null,
-    political_group: group,
-    political_party: party,
+    startDate: deputyInfo?.startDate || null,
+    politicalGroup: group,
+    politicalParty: party,
     presence: {
       total: matchedPresence.length,
       status: presenceStats,
       sessions: matchedPresence.map((p: PresenceRow) => ({
-        date: p.meeting_date,
-        session: p.meeting_number,
-        status: p.meeting_presence,
+        date: p.meetingDate,
+        session: p.meetingNumber,
+        status: p.meetingPresence,
       })),
     },
     laws: {
       total: matchedLaws.length,
       details: matchedLaws.map((p: LawRow) => ({
-        title: p.law_title,
-        status: p.law_status,
-        authors: p.law_authors,
+        title: p.lawTitle,
+        status: p.lawStatus,
+        authors: p.lawAuthors,
       })),
     },
     votes: {
       total: matchedVotes.length,
       stats: voteStats,
       details: matchedVotes.map((v: VoteRow) => ({
-        date: v.meeting_date,
-        vote_name: v.vote_name,
-        result: v.vote_result,
+        date: v.meetingDate,
+        voteName: v.voteName,
+        result: v.voteResult,
       })),
     },
     vi_laws: {
       total: matchedLawsVi.length,
       details: matchedLawsVi.map((p: LawRow) => ({
-        number: p.law_number,
-        type: p.law_type,
-        deposit_date: p.law_deposit_date,
-        evacuation_date: p.law_evacuation_date,
-        status: p.law_status,
+        number: p.lawNumber,
+        type: p.lawType,
+        depositDate: p.lawDepositDate,
+        evacuationDate: p.lawEvacuationDate,
+        status: p.lawStatus,
         title: p.vi,
-        content: p.law_content,
-        authors: p.law_authors,
+        content: p.lawContent,
+        authors: p.lawAuthors,
       })),
     },
   });
