@@ -1,25 +1,22 @@
-
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
+// Definir o tipo Props para lidar com params assíncronos
+type Props = {
+  params: Promise<{ slug: string }>; // params é um Promise
+};
 
-// O Next.js 13+ exige que params seja uma Promise
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ProjectPage({ params }: Props) {
+  // Aguardar a resolução do Promise para obter o slug
   const { slug } = await params;
-
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
 
   if (!firstname || !name) notFound();
-
   const headersList = headers();
-  const host = headersList.get("host");
+  const host = (await headersList).get("host");
 
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
@@ -30,14 +27,14 @@ export default async function ProjectPage({
   if (!res.ok) notFound();
 
   const data = await res.json();
-  const projects = data.laws?.details || [];
+  const projects = data.laws.details;
   const viProjects = data.vi_laws?.details || [];
 
   const getStatusColor = (status: string) => {
     const lower = status.toLowerCase();
-    if (lower.includes("publié")) return "#28a745"; // Verde para aprovado
-    if (lower.includes("rejeté")) return "#dc3545"; // Vermelho para rejeitado
-    return "#6c757d"; // Cinza para outros estados
+    if (lower.includes("publie")) return "#28a745";
+    if (lower.includes("rejete")) return "#dc3545";
+    return "#6c757d";
   };
 
   return (
@@ -54,21 +51,21 @@ export default async function ProjectPage({
               cursor: "pointer",
             }}
           >
-            ← Back to Main Page
+            ← Voltar para a Página Principal
           </button>
         </Link>
       </div>
 
       <h1 style={{ fontSize: "2rem", color: "#003366", textAlign: "center" }}>
-        All Projects of {firstname} {name}
+        Todos os Projetos de {firstname} {name}
       </h1>
 
-      <h2 style={{ marginTop: "2rem", color: "#222" }}>As Author</h2>
+      <h2 style={{ marginTop: "2rem", color: "#222" }}>Como Autor</h2>
       <Table>
         <thead>
           <tr>
             <th>Status</th>
-            <th>Authors</th>
+            <th>Autores</th>
           </tr>
         </thead>
         <tbody>
@@ -99,7 +96,7 @@ export default async function ProjectPage({
           ) : (
             <tr>
               <td colSpan={2} style={{ textAlign: "center" }}>
-                No authored projects found.
+                Nenhum projeto autoral encontrado.
               </td>
             </tr>
           )}
@@ -107,27 +104,27 @@ export default async function ProjectPage({
       </Table>
 
       <h2 style={{ marginTop: "3rem", color: "#222" }}>
-        Mentioned in Projects (via VI field)
+        Mencionado em Projetos (via campo VI)
       </h2>
       <Table>
         <thead>
           <tr>
-            <th>Number</th>
-            <th>Type</th>
-            <th>Deposit Date</th>
-            <th>Evacuation Date</th>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Data de Depósito</th>
+            <th>Data de Evacuação</th>
             <th>Status</th>
-            <th>Mention (VI)</th>
+            <th>Menção (VI)</th>
           </tr>
         </thead>
         <tbody>
           {viProjects.length > 0 ? (
             viProjects.map((project: any, idx: number) => (
               <tr key={idx}>
-                <td data-label="Number">{project.number}</td>
-                <td data-label="Type">{project.type}</td>
-                <td data-label="Deposit">{project.deposit_date}</td>
-                <td data-label="Evacuation">{project.evacuation_date}</td>
+                <td data-label="Número">{project.number}</td>
+                <td data-label="Tipo">{project.type}</td>
+                <td data-label="Depósito">{project.deposit_date}</td>
+                <td data-label="Evacuação">{project.evacuation_date}</td>
                 <td
                   data-label="Status"
                   style={{
@@ -144,7 +141,7 @@ export default async function ProjectPage({
           ) : (
             <tr>
               <td colSpan={6} style={{ textAlign: "center" }}>
-                No projects mentioning this deputy found.
+                Nenhum projeto mencionando este deputado encontrado.
               </td>
             </tr>
           )}
