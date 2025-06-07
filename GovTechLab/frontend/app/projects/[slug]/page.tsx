@@ -1,24 +1,17 @@
+// app/projects/[slug]/page.tsx
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
-import { cachedData } from "@/lib/jsonCache";
 
-// build-time route generation
-export async function generateStaticParams() {
-  const deputies = cachedData.deputies || [];
-
-  return deputies.map((dep) => ({
-    slug: `${dep.firstname}-${dep.name}`,
-  }));
-}
-
-// params é uma Promise aqui por causa da tipagem usada no seu projeto
+// Définir le type Props avec des paramètres asynchrones
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>; // params est une Promise ici
 };
 
 export default async function ProjectPage({ params }: Props) {
+  // Attendre la résolution de la promesse pour obtenir le slug
   const { slug } = await params;
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
@@ -27,8 +20,8 @@ export default async function ProjectPage({ params }: Props) {
 
   const headersList = headers();
   const host = (await headersList).get("host");
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
 
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
     `${firstname} ${name}`
   )}`;
@@ -61,21 +54,21 @@ export default async function ProjectPage({ params }: Props) {
               cursor: "pointer",
             }}
           >
-            ← Voltar para a Página Principal
+            ← Retour à la page principale
           </button>
         </Link>
       </div>
 
       <h1 style={{ fontSize: "2rem", color: "#003366", textAlign: "center" }}>
-        Todos os Projetos de {firstname} {name}
+        Tous les projets de {firstname} {name}
       </h1>
 
-      <h2 style={{ marginTop: "2rem", color: "#222" }}>Como Autor</h2>
+      <h2 style={{ marginTop: "2rem", color: "#222" }}>En tant qu’auteur</h2>
       <Table>
         <thead>
           <tr>
-            <th>Status</th>
-            <th>Autores</th>
+            <th>Statut</th>
+            <th>Auteurs</th>
           </tr>
         </thead>
         <tbody>
@@ -83,7 +76,7 @@ export default async function ProjectPage({ params }: Props) {
             projects.map((project: any, idx: number) => (
               <tr key={idx}>
                 <td
-                  data-label="Status"
+                  data-label="Statut"
                   style={{
                     backgroundColor: getStatusColor(project.status),
                     color: "#fff",
@@ -92,7 +85,7 @@ export default async function ProjectPage({ params }: Props) {
                 >
                   {project.status}
                 </td>
-                <td data-label="Authors">
+                <td data-label="Auteurs">
                   <ul>
                     {project.authors
                       .split(",")
@@ -106,7 +99,7 @@ export default async function ProjectPage({ params }: Props) {
           ) : (
             <tr>
               <td colSpan={2} style={{ textAlign: "center" }}>
-                Nenhum projeto autoral encontrado.
+                Aucun projet trouvé dont ce député est l’auteur.
               </td>
             </tr>
           )}
@@ -114,29 +107,29 @@ export default async function ProjectPage({ params }: Props) {
       </Table>
 
       <h2 style={{ marginTop: "3rem", color: "#222" }}>
-        Mencionado em Projetos (via campo VI)
+        Mentionné dans les projets.
       </h2>
       <Table>
         <thead>
           <tr>
-            <th>Número</th>
-            <th>Tipo</th>
-            <th>Data de Depósito</th>
-            <th>Data de Evacuação</th>
-            <th>Status</th>
-            <th>Menção (VI)</th>
+            <th>Numéro</th>
+            <th>Type</th>
+            <th>Date de dépôt</th>
+            <th>Date d’évacuation</th>
+            <th>Statut</th>
+            <th>Mention (VI)</th>
           </tr>
         </thead>
         <tbody>
           {viProjects.length > 0 ? (
             viProjects.map((project: any, idx: number) => (
               <tr key={idx}>
-                <td data-label="Número">{project.number}</td>
-                <td data-label="Tipo">{project.type}</td>
-                <td data-label="Depósito">{project.deposit_date}</td>
-                <td data-label="Evacuação">{project.evacuation_date}</td>
+                <td data-label="Numéro">{project.number}</td>
+                <td data-label="Type">{project.type}</td>
+                <td data-label="Dépôt">{project.deposit_date}</td>
+                <td data-label="Évacuation">{project.evacuation_date}</td>
                 <td
-                  data-label="Status"
+                  data-label="Statut"
                   style={{
                     backgroundColor: getStatusColor(project.status),
                     color: "#fff",
