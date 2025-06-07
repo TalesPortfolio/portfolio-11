@@ -3,20 +3,21 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
+// Definição correta das props (params como Promise)
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
 export default async function ProjectPage({ params }: Props) {
-  const slug = params.slug;
+  const { slug } = await params;
+
   const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
 
   if (!firstname || !name) notFound();
+
   const headersList = headers();
-  const host = (await headersList).get("host");
+  const host = headersList.get("host");
 
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const url = `${protocol}://${host}/api/deputy?name=${encodeURIComponent(
@@ -27,14 +28,14 @@ export default async function ProjectPage({ params }: Props) {
   if (!res.ok) notFound();
 
   const data = await res.json();
-  const projects = data.laws.details;
+  const projects = data.laws?.details || [];
   const viProjects = data.vi_laws?.details || [];
 
   const getStatusColor = (status: string) => {
     const lower = status.toLowerCase();
-    if (lower.includes("publie")) return "#28a745";
-    if (lower.includes("rejete")) return "#dc3545";
-    return "#6c757d";
+    if (lower.includes("publié")) return "#28a745"; // Verde para aprovado
+    if (lower.includes("rejeté")) return "#dc3545"; // Vermelho para rejeitado
+    return "#6c757d"; // Cinza para outros estados
   };
 
   return (
