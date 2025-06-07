@@ -37,7 +37,6 @@ export default async function ProjectPage({ params }: Props) {
     if (lower.includes("rejeté")) return "#dc3545"; // Vermelho para rejeitado
     return "#6c757d"; // Cinza para outros estados
   };
-
   return (
     <Wrapper>
       <div style={{ marginBottom: "1rem" }}>
