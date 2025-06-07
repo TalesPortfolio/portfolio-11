@@ -1,18 +1,28 @@
+// app/projects/[slug]/page.tsx
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
+import { cachedData } from "@/lib/jsonCache"; // ✅ necessário para generateStaticParams()
+
+// ✅ Gera as rotas estaticamente no build (Next.js App Router)
+export async function generateStaticParams() {
+  const deputies = cachedData.deputies || [];
+
+  return deputies.map((dep) => ({
+    slug: `${dep.firstname}-${dep.name}`,
+  }));
+}
 
 // Definir o tipo Props para lidar com params assíncronos
 type Props = {
-  params: Promise<{ slug: string }>; // params é um Promise
+  params: { slug: string };
 };
 
 export default async function ProjectPage({ params }: Props) {
-  // Aguardar a resolução do Promise para obter o slug
-  const { slug } = await params;
+  const slug = params.slug;
 
-  // ✅ Correção aplicada aqui
   const decodedSlug = decodeURIComponent(slug);
   const [firstname, ...rest] = decodedSlug.split("-");
   const name = rest.join(" ");
@@ -127,8 +137,8 @@ export default async function ProjectPage({ params }: Props) {
               <tr key={idx}>
                 <td data-label="Número">{project.number}</td>
                 <td data-label="Tipo">{project.type}</td>
-                <td data-label="Depósito">{project.deposit_date}</td>
-                <td data-label="Evacuação">{project.evacuation_date}</td>
+                <td data-label="Depósito">{project.depositDate}</td>
+                <td data-label="Evacuação">{project.evacuationDate}</td>
                 <td
                   data-label="Status"
                   style={{
@@ -145,7 +155,7 @@ export default async function ProjectPage({ params }: Props) {
           ) : (
             <tr>
               <td colSpan={6} style={{ textAlign: "center" }}>
-                Aucun projet mentionnant ce député trouvé.
+                Nenhum projeto mencionando este deputado encontrado.
               </td>
             </tr>
           )}
