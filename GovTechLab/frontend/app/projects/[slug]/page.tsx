@@ -3,12 +3,13 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
 
-// Definição correta das props (params como Promise)
-type Props = {
-  params: Promise<{ slug: string }>;
-};
 
-export default async function ProjectPage({ params }: Props) {
+// O Next.js 13+ exige que params seja uma Promise
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
 
   const [firstname, ...rest] = slug.split("-");
@@ -37,6 +38,7 @@ export default async function ProjectPage({ params }: Props) {
     if (lower.includes("rejeté")) return "#dc3545"; // Vermelho para rejeitado
     return "#6c757d"; // Cinza para outros estados
   };
+
   return (
     <Wrapper>
       <div style={{ marginBottom: "1rem" }}>
