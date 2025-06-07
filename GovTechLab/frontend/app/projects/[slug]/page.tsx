@@ -1,12 +1,10 @@
-// app/projects/[slug]/page.tsx
-
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Wrapper, Table } from "@/styles/ProjectPage.styles";
-import { cachedData } from "@/lib/jsonCache"; // ✅ necessário para generateStaticParams()
+import { cachedData } from "@/lib/jsonCache";
 
-// ✅ Gera as rotas estaticamente no build (Next.js App Router)
+// build-time route generation
 export async function generateStaticParams() {
   const deputies = cachedData.deputies || [];
 
@@ -15,16 +13,14 @@ export async function generateStaticParams() {
   }));
 }
 
-// Definir o tipo Props para lidar com params assíncronos
+// params é uma Promise aqui por causa da tipagem usada no seu projeto
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export default async function ProjectPage({ params }: Props) {
-  const slug = params.slug;
-
-  const decodedSlug = decodeURIComponent(slug);
-  const [firstname, ...rest] = decodedSlug.split("-");
+  const { slug } = await params;
+  const [firstname, ...rest] = slug.split("-");
   const name = rest.join(" ");
 
   if (!firstname || !name) notFound();
@@ -137,8 +133,8 @@ export default async function ProjectPage({ params }: Props) {
               <tr key={idx}>
                 <td data-label="Número">{project.number}</td>
                 <td data-label="Tipo">{project.type}</td>
-                <td data-label="Depósito">{project.depositDate}</td>
-                <td data-label="Evacuação">{project.evacuationDate}</td>
+                <td data-label="Depósito">{project.deposit_date}</td>
+                <td data-label="Evacuação">{project.evacuation_date}</td>
                 <td
                   data-label="Status"
                   style={{
@@ -155,7 +151,7 @@ export default async function ProjectPage({ params }: Props) {
           ) : (
             <tr>
               <td colSpan={6} style={{ textAlign: "center" }}>
-                Nenhum projeto mencionando este deputado encontrado.
+                Aucun projet mentionnant ce député trouvé.
               </td>
             </tr>
           )}
