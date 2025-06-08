@@ -3,7 +3,7 @@
 import {useTranslations} from 'next-intl';
 
  
-export default function Cart() {
+function Cart() {
   const t = useTranslations('Cart');
   return (
     <div>
@@ -12,3 +12,6 @@ export default function Cart() {
     </div>
   );
 }
+
+Cart.displayName = "Cart";
+export default Cart;

@@ -169,9 +169,50 @@
     "total": "Total",
     "checkout": "Finaliser l'achat (simulé)"
   },
+  "ProductCategoriesPage": {
+    "pageTitle": "Nos Collections",
+    "bracelets": "Bracelets",
+    "cords": "Chaînes",
+    "earrings": "Boucles d'oreilles",
+    "pendants": "Pendentifs",
+    "rings": "Bagues",
+    "reparation": "Réparation de Bijoux",
+    "JewelryEngraving": "Gravure sur Bijoux"
+  },
   "BraceletsPage": {
-    "bannerAlt": "Bannière de bracelets",
-    "pageTitle": "Bracelets Exclusifs Golden Charm"
+    "pageTitle": "Bracelets",
+    "bannerAlt": "Banner de bracelets",
+    "loading": "Chargement des produits...",
+    "errorLoading": "Erreur lors du chargement des produits.",
+    "back": "Retour à l'accueil"
+  },
+  "CordsPage": {
+    "bannerAlt": "Bannière pour les cordons",
+    "pageTitle": "Collection de Cordons",
+    "loading": "Chargement...",
+    "errorLoading": "Erreur lors du chargement des produits.",
+    "back": "Retour à l'accueil"
+  },
+  "EarringsPage": {
+    "bannerAlt": "Bannière des boucles d'oreilles élégantes",
+    "pageTitle": "Collection de Boucles d'Oreilles",
+    "loading": "Chargement des boucles d'oreilles...",
+    "errorLoading": "Erreur lors du chargement des boucles d'oreilles. Veuillez réessayer.",
+    "back": "Retour à l'accueil"
+  },
+  "PendantsPage": {
+    "bannerAlt": "Bannière des pendentifs élégants",
+    "pageTitle": "Collection de pendentifs",
+    "loading": "Chargement des pendentifs...",
+    "errorLoading": "Erreur lors du chargement des pendentifs. Veuillez réessayer.",
+    "back": "Retour à l'accueil"
+  },
+  "RingsPage": {
+    "bannerAlt": "Bannière des bagues élégantes",
+    "pageTitle": "Collection de bagues",
+    "loading": "Chargement des bagues...",
+    "errorLoading": "Erreur lors du chargement des bagues. Veuillez réessayer.",
+    "back": "Retour à l'accueil"
   },
   "ProductDetailPage": {
     "notFound": "Produit non trouvé",

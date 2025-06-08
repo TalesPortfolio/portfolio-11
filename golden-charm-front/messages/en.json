@@ -168,9 +168,50 @@
     "total": "Total",
     "checkout": "Checkout (simulated)"
   },
+  "ProductCategoriesPage": {
+    "pageTitle": "Our Collections",
+    "bracelets": "Bracelets",
+    "cords": "Chains",
+    "earrings": "Earrings",
+    "pendants": "Pendants",
+    "rings": "Rings",
+    "reparation": "Jewelry Repair",
+    "JewelryEngraving": "Jewelry Engraving"
+  },
   "BraceletsPage": {
+    "pageTitle": "Bracelets",
     "bannerAlt": "Bracelets banner",
-    "pageTitle": "Exclusive Golden Charm Bracelets"
+    "loading": "Loading products...",
+    "errorLoading": "Error loading products.",
+    "back": "Back to home"
+  },
+  "CordsPage": {
+    "bannerAlt": "Banner image for cords",
+    "pageTitle": "Cord Collection",
+    "loading": "Loading...",
+    "errorLoading": "Error loading the products.",
+    "back": "Back to home"
+  },
+  "EarringsPage": {
+    "bannerAlt": "Elegant earrings banner",
+    "pageTitle": "Earrings Collection",
+    "loading": "Loading earrings...",
+    "errorLoading": "Error loading earrings. Please try again.",
+    "back": "Back to home"
+  },
+  "PendantsPage": {
+    "bannerAlt": "Elegant pendants banner",
+    "pageTitle": "Pendant Collection",
+    "loading": "Loading pendants...",
+    "errorLoading": "Error loading pendants. Please try again.",
+    "back": "Back to homepage"
+  },
+  "RingsPage": {
+    "bannerAlt": "Elegant rings banner",
+    "pageTitle": "Ring Collection",
+    "loading": "Loading rings...",
+    "errorLoading": "Error loading rings. Please try again.",
+    "back": "Back to homepage"
   },
   "ProductDetailPage": {
     "notFound": "Product not found",

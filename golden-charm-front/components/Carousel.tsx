@@ -15,11 +15,12 @@ import {
   H2,
 } from '../styles/CarouselStyled';
 
-//Look at translation, the prices are there.
+// Lista de slides
 const slides = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6'];
 
-export default function Carousel() {
-  const t = useTranslations('Carousel');  // agora bate em app/[locale]/Carousel.json
+// Define o componente
+function Carousel() {
+  const t = useTranslations('Carousel');
 
   const settings = {
     infinite: true,
@@ -34,18 +35,15 @@ export default function Carousel() {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
     responsive: [
-  { breakpoint: 1024, settings: { slidesToShow: 3 } },
-  { breakpoint: 768,  settings: { slidesToShow: 2 } },
-  { breakpoint: 480,  settings: { slidesToShow: 1 } },
-],
-
-
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+    ],
   };
 
   return (
     <CarouselWrapper>
       <H2>{t('carouselTitle')}</H2>
-
       <Slider {...settings}>
         {slides.map(key => (
           <Card key={key}>
@@ -58,3 +56,8 @@ export default function Carousel() {
     </CarouselWrapper>
   );
 }
+
+// Adiciona o displayName para aparecer no DevTools
+Carousel.displayName = 'Carousel';
+
+export default Carousel;

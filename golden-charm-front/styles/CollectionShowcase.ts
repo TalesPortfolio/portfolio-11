@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colorId } from "./colors";
 
 export const Container = styled.div`
   display: flex;
@@ -48,6 +47,7 @@ export const Title = styled.h3`
   font-size: 1.2rem;
   margin: 16px 0 8px;
   font-weight: bold;
+  color: ${(props) => props.theme.textBase};
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
@@ -62,6 +62,7 @@ export const Description = styled.p`
   font-size: 0.95rem;
   margin-bottom: 16px;
   line-height: 1.4;
+  color: ${(props) => props.theme.textBase};
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -73,7 +74,7 @@ export const Description = styled.p`
 `;
 
 export const Button = styled.button`
-  background-color: ${colorId.ButtonStyles};
+  background-color: ${(props) => props.theme.buttonPrimary};
   color: #fff;
   padding: 10px 18px;
   border: none;
@@ -83,7 +84,7 @@ export const Button = styled.button`
   transition: background 0.3s;
 
   &:hover {
-    background-color: ${colorId.ButtonStylesHover};
+    background-color: ${(props) => props.theme.buttonPrimaryHover};
   }
 
   @media (max-width: 480px) {

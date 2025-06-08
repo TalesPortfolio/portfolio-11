@@ -1,44 +1,27 @@
-// styles/navBarStyled.ts
-import styled, { keyframes } from "styled-components";
-import { colorId } from "./colors";
+// estilização (NavbarStyles.ts)
+import styled from "styled-components";
 import Link from "next/link";
 
-const shake = keyframes`
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-2px); }
-  50%  { transform: translateX(2px); }
-  75%  { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
-`;
-
 export const Header = styled.header`
-  position: fixed; // <-- Fixa no topo
-  top: 0; // <-- Alinha ao topo da tela
+height: 100px;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; // <-- Garante que fique acima dos outros elementos
+  z-index: 1000;
   width: 100%;
   min-height: 70px;
-  background: ${colorId.backgroundPrimary};
+  background: ${(props) => props.theme.bgGradientMain};
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 4px 4px 12px rgba(193, 41, 115, 0.2); // baseado em #C12973
-
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
   @media (max-width: 768px) {
     padding: 1rem;
     flex-direction: column;
-    align-items: stretch;
     gap: 0.5rem;
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    min-height: unset;
   }
 `;
 
@@ -48,11 +31,6 @@ export const Title = styled.div`
   flex: 1;
 
   @media (max-width: 768px) {
-    justify-content: center;
-    width: 100%;
-  }
-
-  @media (max-width: 480px) {
     justify-content: center;
     width: 100%;
   }
@@ -72,44 +50,53 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   a {
-    display: inline-block;
-    color: ${colorId.textLight};
+    color: ${(props) => props.theme.textPrimary || "#1f1f1f"};
     font-weight: 600;
     text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+
     &:hover {
-      color: ${colorId.gold};
-      animation: ${shake} 0.5s infinite;
+      color: ${(props) => props.theme.primaryColor || "#003366"};
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
 `;
 
-//ok
 export const LogoImage = styled.img`
-  height: 80px;
+  height: 40px; // menor que antes
   width: auto;
+  margin-right: 0.5rem;
+`;
+
+export const LogoText = styled.span`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.textPrimary};
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 
   @media (max-width: 480px) {
-    height: 60px;
-    display: none;
+    font-size: 1.2rem;
   }
 `;
 
-//ok
+
+
 export const SearchContainer = styled.form`
   display: flex;
   align-items: center;
   position: relative;
   gap: 1rem;
 
-  @media (max-width: 768px) {
-    gap: 0.5rem;
-  }
   @media (max-width: 480px) {
     display: none;
   }
 `;
 
-//ok
 export const SearchInput = styled.input`
   padding: 0.5rem 2.5rem 0.5rem 0.75rem;
   border: 1px solid #ccc;
@@ -130,7 +117,6 @@ export const SearchInput = styled.input`
   }
 `;
 
-//ok
 export const SearchIconWrapper = styled.button`
   position: absolute;
   right: 0.25rem;
@@ -141,7 +127,6 @@ export const SearchIconWrapper = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
 `;
 
 export const IconGroup = styled.div`
@@ -162,51 +147,47 @@ export const IconGroup = styled.div`
   }
 `;
 
-
-
 export const IconLink = styled(Link)`
+  color: ${(props) => props.theme.textPrimary || "#1f1f1f"};
   display: flex;
   align-items: center;
-  color: ${colorId.textLight};
-  text-decoration: none;
-  &:hover {
-    color: ${colorId.gold};
-    animation: ${shake} 0.5s infinite;
-  }
+  transition: color 0.2s;
 
-  @media (max-width: 768px) {
-    width: auto;
-    justify-content: center;
-    align-items: center;
+  &:hover {
+    color: ${(props) => props.theme.primaryColor || "#1155cc"};
   }
 `;
 
-
 export const LanguageSelect = styled.select`
-  margin-left: 1rem;
-  padding: 0.3rem;
-  border-radius: 4px;
+  background: #f0f8ff;
   border: 1px solid #ccc;
-  background: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #333;
   cursor: pointer;
-  @media (max-width: 768px) {
-    //display: none;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: #888;
   }
 `;
 
 export const Carrosel = styled.div`
   width: 400px;
   margin-right: 2rem;
+
   .carousel-control-prev,
   .carousel-control-next,
   .carousel-indicators {
     display: none;
   }
+
   .carousel-item p {
     margin: 0;
     font-size: 0.9rem;
     font-weight: bold;
-    color: ${colorId.gold};
+    color: ${(props) => props.theme.textPrimary || "#C12973"};
   }
 
   @media (max-width: 768px) {

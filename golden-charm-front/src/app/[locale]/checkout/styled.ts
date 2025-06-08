@@ -15,9 +15,9 @@ export const MainContent = styled.main`
 `;
 
 export const Title = styled.h1`
-  margin-top : 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
-  color: #C12973;
+  color: ${({ theme }) => theme.textPrimary};
 `;
 
 export const Item = styled.div`
@@ -25,7 +25,7 @@ export const Item = styled.div`
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid ${({ theme }) => theme.textBase};
   padding-bottom: 1rem;
 `;
 
@@ -36,8 +36,8 @@ export const ItemDetails = styled.div`
 export const RemoveButton = styled.button`
   margin-top: 0.5rem;
   background-color: transparent;
-  color: #C12973;
-  border: 1px solid #C12973;
+  color: ${({ theme }) => theme.textHighlight};
+  border: 1px solid ${({ theme }) => theme.textHighlight};
   padding: 4px 8px;
   cursor: pointer;
   border-radius: 4px;
@@ -45,7 +45,7 @@ export const RemoveButton = styled.button`
 
 export const FinishButton = styled.button`
   margin-top: 1rem;
-  background-color: #C12973;
+  background-color: ${({ theme }) => theme.textHighlight};
   color: #fff;
   border: none;
   padding: 10px 20px;

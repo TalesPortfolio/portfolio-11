@@ -1,9 +1,9 @@
+// styles/complaints.ts
 import styled from "styled-components";
-import { colorId } from "../../../../styles/colors";
 
 export const SectionMain = styled.div`
   width: 100%;
-  background-image: ${colorId.backgroundGradient2};
+  background-image: ${(props) => props.theme.bgGradientSection};
   padding-top: 100px;
 `;
 
@@ -11,11 +11,12 @@ export const Section = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  color: ${colorId.accentPurple};
+  color: ${({ theme }) => theme.textTitle};
+
 
   h1 {
     font-size: 2.5rem;
-    color: ${colorId.accentPink};
+    color: ${(props) => props.theme.textHighlight};
     text-align: center;
     margin-bottom: 20px;
   }
@@ -76,15 +77,15 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 1px solid ${colorId.accentPurple};
+  border: 1px solid ${(props) => props.theme.textTitle};
   border-radius: 4px;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: ${(props) => props.theme.inputBackground};
+  color: ${(props) => props.theme.inputText};
   font-size: 1rem;
 
   &:focus {
     outline: none;
-    border-color: ${colorId.accentPink};
+    border-color: ${(props) => props.theme.textHighlight};
   }
 
   @media (max-width: 480px) {
@@ -94,16 +95,16 @@ export const Input = styled.input`
 
 export const Textarea = styled.textarea`
   padding: 10px;
-  border: 1px solid ${colorId.accentPurple};
+  border: 1px solid ${(props) => props.theme.textTitle};
   border-radius: 4px;
-  background-color: #f5f5f5;
+  background-color: ${(props) => props.theme.inputBackground};
   resize: vertical;
-  color: #333;
+  color: ${(props) => props.theme.inputText};
   font-size: 1rem;
 
   &:focus {
     outline: none;
-    border-color: ${colorId.accentPink};
+    border-color: ${(props) => props.theme.textHighlight};
   }
 
   @media (max-width: 480px) {
@@ -112,7 +113,7 @@ export const Textarea = styled.textarea`
 `;
 
 export const Button = styled.button`
-  background-color: ${colorId.accentPink};
+  background-color: ${(props) => props.theme.textHighlight};
   color: white;
   font-weight: bold;
   border: none;
@@ -124,7 +125,8 @@ export const Button = styled.button`
   font-size: 1rem;
 
   &:hover {
-    background-color: ${colorId.accentPurple};
+    background-color: ${({ theme }) => theme.textTitle};
+
   }
 
   @media (max-width: 480px) {
@@ -132,5 +134,3 @@ export const Button = styled.button`
     font-size: 0.95rem;
   }
 `;
-
-

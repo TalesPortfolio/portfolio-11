@@ -7,8 +7,15 @@
 // Example: Cartprovider (keeps the cart when changing language)  ///
 /////////////////////////////////////////////////////////////////////
 
+"use client";
+
 import { CartProvider } from "@/context/CartContext";
+import { ThemeProvider } from "@/context/ThemeContext"; // ⬅️ importar o ThemeContext
 
 export default function GlobalProviders({ children }: { children: React.ReactNode }) {
-  return <CartProvider>{children}</CartProvider>;
+  return (
+    <CartProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </CartProvider>
+  );
 }

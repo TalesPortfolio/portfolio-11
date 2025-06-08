@@ -168,28 +168,68 @@
     "total": "Total",
     "checkout": "Finalizar Compra (simulado)"
   },
+  "ProductCategoriesPage": {
+    "pageTitle": "Nossas Coleções",
+    "bracelets": "Pulseiras",
+    "cords": "Cordões",
+    "earrings": "Brincos",
+    "pendants": "Pingentes",
+    "rings": "Anéis",
+    "reparation": "Reparo de Joias",
+    "JewelryEngraving": "Gravação em Joias"
+  },
   "BraceletsPage": {
-    "bannerAlt": "Banner braceletes",
-    "pageTitle": "Braceletes Exclusivos Golden Charm"
+    "pageTitle": "Pulseiras",
+    "bannerAlt": "Banner de pulseiras",
+    "loading": "Carregando produtos...",
+    "errorLoading": "Erro ao carregar os produtos.",
+    "back": "Voltar para o início"
+  },
+  "CordsPage": {
+    "bannerAlt": "Imagem do banner para cordões",
+    "pageTitle": "Coleção de Cordões",
+    "loading": "Carregando...",
+    "errorLoading": "Erro ao carregar os produtos.",
+    "back": "Voltar para o início"
+  },
+  "EarringsPage": {
+    "bannerAlt": "Banner de brincos elegantes",
+    "pageTitle": "Coleção de Brincos",
+    "loading": "Carregando brincos...",
+    "errorLoading": "Erro ao carregar os brincos. Por favor, tente novamente.",
+    "back": "Voltar para o início"
+  },
+  "PendantsPage": {
+    "bannerAlt": "Banner de pingentes elegantes",
+    "pageTitle": "Coleção de Pingentes",
+    "loading": "Carregando pingentes...",
+    "errorLoading": "Erro ao carregar os pingentes. Por favor, tente novamente.",
+    "back": "Voltar para a página inicial"
+  },
+  "RingsPage": {
+    "bannerAlt": "Banner de anéis elegantes",
+    "pageTitle": "Coleção de Anéis",
+    "loading": "Carregando anéis...",
+    "errorLoading": "Erro ao carregar os anéis. Por favor, tente novamente.",
+    "back": "Voltar para a página inicial"
   },
   "ProductDetailPage": {
-  "notFound": "Produto não encontrado",
-  "category": "Categoria",
-  "description": "Descrição",
-  "material": "Material",
-  "weight": "Peso",
-  "size": "Tamanho",
-  "color": "Cor",
-  "stoneType": "Tipo de Pedra",
-  "price": "Preço",
-  "stock": "Estoque",
-  "available": "Disponível",
-  "unavailable": "Indisponível",
-  "featured": "Destaque",
-  "yes": "Sim",
-  "no": "Não",
-  "back": "Voltar",
-  "addToCart": "Adicionar ao carrinho"
-}
-
+    "notFound": "Produto não encontrado",
+    "category": "Categoria",
+    "description": "Descrição",
+    "material": "Material",
+    "weight": "Peso",
+    "size": "Tamanho",
+    "color": "Cor",
+    "stoneType": "Tipo de Pedra",
+    "price": "Preço",
+    "stock": "Estoque",
+    "available": "Disponível",
+    "unavailable": "Indisponível",
+    "featured": "Destaque",
+    "yes": "Sim",
+    "no": "Não",
+    "back": "Voltar",
+    "addToCart": "Adicionar ao carrinho"
+  }
 }

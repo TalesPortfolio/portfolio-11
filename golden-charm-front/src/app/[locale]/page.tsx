@@ -18,7 +18,7 @@ import { useTranslations } from "next-intl";
 import Footer from "../../../components/Footer";
 import CollectionShowcase from "../../../components/CollectionShowcase";
 
-export default function HomePage() {
+function HomePage() {
   const t = useTranslations("HomePage");
 
   return (
@@ -54,3 +54,7 @@ export default function HomePage() {
     </>
   );
 }
+
+HomePage.displayName = 'HomePage';
+
+export default HomePage;

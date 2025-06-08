@@ -17,7 +17,7 @@ import {
   Total,
 } from "./styled";
 
-export default function CheckoutPage() {
+function CheckoutPage() {
   const { cart, clearCart, removeFromCart } = useCart();
   const t = useTranslations("CheckoutPage");
 
@@ -74,3 +74,7 @@ export default function CheckoutPage() {
     </PageWrapper>
   );
 }
+
+CheckoutPage.displayName = 'CheckoutPage';
+
+export default CheckoutPage;

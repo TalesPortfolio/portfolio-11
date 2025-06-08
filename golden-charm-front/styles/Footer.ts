@@ -1,13 +1,13 @@
 "use client";
 import styled from "styled-components";
-import { colorId } from "./colors";
 
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
-  background-image: ${colorId.backgroundGradient2};
+  background-image: ${(props) => props.theme.bgGradientSection};
   height: auto;
   padding-bottom: 20px;
+
   @media (max-width: 768px) {
     height: auto;
     padding: 4px;
@@ -28,10 +28,10 @@ export const SectionInfo = styled.div`
 export const ContainerInfo = styled.div`
   h2 {
     font-size: 1.3em;
-    color: ${colorId.accentPink};
+    color: ${(props) => props.theme.textPrimary};
   }
   p {
-    color: ${colorId.accentPurple};
+    color: ${(props) => props.theme.textPrimary};
     font-size: 14px;
     margin-bottom: 5px;
   }
@@ -72,7 +72,7 @@ export const NewsletterWrapper = styled.div`
   }
 
   input[type="button"] {
-    background-color: ${colorId.accentPink};
+    background-color: ${(props) => props.theme.textHighlight};
     color: white;
     border: none;
     padding: 10px 20px;
@@ -84,7 +84,7 @@ export const NewsletterWrapper = styled.div`
     transition: background 0.3s;
 
     &:hover {
-      background-color: ${colorId.accentPurple};
+      background-color: ${(props) => props.theme.textTitle};
     }
   }
 
@@ -111,14 +111,14 @@ export const Copyrigth = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  color: ${colorId.accentPurple};
+  color: ${(props) => props.theme.textPrimary};
 
   h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: ${colorId.accentPurple};
+    color: ${(props) => props.theme.textPrimary};
   }
 
   p {

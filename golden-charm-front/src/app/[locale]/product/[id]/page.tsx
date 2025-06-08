@@ -4,9 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import AppNavbar from "../../../../../components/Navbar";
 import Footer from "../../../../../components/Footer";
-import { products } from "@/data/bracelets/products";
 import { useCart } from "@/context/CartContext";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   SectionMain,
   PageWrapper,
@@ -24,26 +23,53 @@ import {
   AddToCartButton,
   BackButton,
 } from "./styled";
+import { useEffect, useState } from "react";
+import type { Product as ProductType } from "../../../../../types/product";
 
-export default function ProductDetailPage() {
+function ProductDetailPage() {
   const router = useRouter();
   const params = useParams();
-  const { addToCart } = useCart();
+  const locale = useLocale();
   const t = useTranslations("ProductDetailPage");
-
-const handleAddToCart = () => {
-  addToCart({
-    id: product!.id,
-    title: product!.name,
-    price: product!.price,
-    image: product!.image,
-    quantity: 1,
-  });
-};
-
+  const { addToCart } = useCart();
 
   const id = typeof params?.id === "string" ? params.id : "";
-  const product = products.find((p) => p.id === id);
+
+  const [product, setProduct] = useState<ProductType | null>(null);
+
+  useEffect(() => {
+    async function loadProduct() {
+      const categories = ["bracelets", "cords", "earrings", "pendants", "rings"];
+
+      for (const category of categories) {
+        try {
+          const data = await import(`../../../../data/${category}/products.${locale}.ts`);
+          const found = data.products.find((p: ProductType) => p.id === id);
+          if (found) {
+            setProduct(found);
+            return;
+          }
+        } catch (err) {
+          console.error(`Erro ao carregar produtos da categoria "${category}":`, err);
+        }
+      }
+
+      setProduct(null); // produto não encontrado
+    }
+
+    loadProduct();
+  }, [locale, id]);
+
+  const handleAddToCart = () => {
+    if (!product) return;
+    addToCart({
+      id: product.id,
+      title: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1,
+    });
+  };
 
   if (!product) {
     return (
@@ -116,11 +142,25 @@ const handleAddToCart = () => {
               {t("addToCart")}
             </AddToCartButton>
 
-            <BackButton onClick={() => router.back()}>{t("back")}</BackButton>
+            <BackButton
+              onClick={() => {
+                if (typeof window !== "undefined" && window.history.length > 1) {
+                  router.back();
+                } else {
+                  router.push(`/${locale}`);
+                }
+              }}
+            >
+              {t("back")}
+            </BackButton>
           </Details>
         </ProductWrapper>
-      </PageWrapper>{" "}
+      </PageWrapper>
       <Footer />
     </SectionMain>
   );
 }
+
+ProductDetailPage.displayName = 'ProductDetailPage';
+
+export default ProductDetailPage;

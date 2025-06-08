@@ -19,7 +19,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useTranslations } from "next-intl";
 
-export default function TestimonialSlider() {
+function TestimonialSlider() {
   const t = useTranslations("TestimonialSlider");
 
   const testimonials = [
@@ -105,3 +105,6 @@ export default function TestimonialSlider() {
     </Wrapper>
   );
 }
+
+TestimonialSlider.displayName = "TestimonialSlider";
+export default TestimonialSlider;

@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import { colorId } from "../../../../styles/colors";
 
 export const SectionMain = styled.div`
   width: 100%;
-  background-image: ${colorId.backgroundGradient2};
+  height: auto;
+  background-image: ${({ theme }) => theme.bgGradientSection};
 `;
 
 export const Section = styled.div`
-  margin: 100px auto 0 auto;
+
+  margin: 40px auto 0 auto;
   padding: 40px;
   max-width: 1000px;
   color: aliceblue;
@@ -21,7 +22,7 @@ export const Section = styled.div`
     padding-top: 30px;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: ${colorId.accentPurple};
+    color: ${({ theme }) => theme.textTitle};
     text-align: center;
   }
 
@@ -29,7 +30,7 @@ export const Section = styled.div`
     text-align: justify;
     margin-bottom: 20px;
     line-height: 1.6;
-    color: ${colorId.accentPurple};
+    color: ${({ theme }) => theme.textTitle};
     font-size: 1rem;
   }
 

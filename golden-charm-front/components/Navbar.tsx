@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-
+import { useThemeContext } from "../src/context/ThemeContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useRouter, usePathname, useParams } from "next/navigation";
 import { FiSearch, FiShoppingCart, FiUser, FiHeart } from "react-icons/fi";
 import {
   Title,
   Header,
-  LogoImage,
+  LogoText,
   NavList,
   NavItem,
   SearchContainer,
@@ -33,12 +33,12 @@ const localeLabels: Record<string, string> = {
 
 const AppNavbar: React.FC = () => {
   const t = useTranslations("AppNavbar");
+  const { theme, setTheme } = useThemeContext();
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams() as { locale: string };
   const currentLocale = params.locale;
-
   const { cart } = useCart();
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -67,12 +67,7 @@ const AppNavbar: React.FC = () => {
     <Header>
       <Link href={`/${currentLocale}/`}>
         <Title>
-          <LogoImage
-            src="/images/logoGC4.png"
-            alt="Golden Charm Logo"
-            width={100}
-            height={50}
-          />
+          <LogoText>Golden Charm</LogoText>
         </Title>
       </Link>
 
@@ -174,9 +169,25 @@ const AppNavbar: React.FC = () => {
             </option>
           ))}
         </LanguageSelect>
+        <select
+          value={theme}
+          onChange={(e) => setTheme(e.target.value as "pink" | "blue")}
+          style={{
+            marginLeft: "10px",
+            padding: "4px 8px",
+            borderRadius: "6px",
+            border: "1px solid #ccc",
+            cursor: "pointer",
+          }}
+        >
+          <option value="pink">🌸 Theme</option>
+          <option value="blue">💙 Theme</option>
+        </select>
       </IconGroup>
     </Header>
   );
 };
+
+AppNavbar.displayName = "AppNavBar";
 
 export default AppNavbar;

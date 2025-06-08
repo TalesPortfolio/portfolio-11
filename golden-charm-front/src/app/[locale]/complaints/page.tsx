@@ -5,7 +5,7 @@ import { SectionMain, Section, Form, Label, Input, Textarea, Button } from "./st
 import AppNavbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 
-export default function WhistleblowerChannel() {
+function WhistleblowerChannel() {
   const [anonymous, setAnonymous] = useState(false);
   const t = useTranslations("Whistleblower");
 
@@ -57,3 +57,7 @@ export default function WhistleblowerChannel() {
     </SectionMain>
   );
 }
+
+WhistleblowerChannel.displayName = 'WhistleblowerChannel';
+
+export default WhistleblowerChannel;

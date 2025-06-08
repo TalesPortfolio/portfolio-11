@@ -18,18 +18,19 @@ import {
   AddToCartButton,
 } from "../styles/ProductCard";
 
-import { ProductCardProps } from "../types/ProductCardPropsTypes";
+import { ProductCardProps } from "../types/product";
 import { useCart } from "@/context/CartContext";
 
-export default function ProductCard({
+function ProductCard({
   id,
   image,
   title,
   brand,
   price,
-  badges = [],
+  description,
   tags = [],
   engraving = false,
+  badges = [],
 }: ProductCardProps) {
   const { addToCart } = useCart();
   const t = useTranslations("ProductCard");
@@ -61,7 +62,7 @@ export default function ProductCard({
       </div>
 
       <TagsContainer>
-        {tags.map((tag, idx) => {
+        {tags.map((tag: string, idx: number) => {
           const tagUpper = tag.toUpperCase();
 
           if (tagUpper === "MORE DETAILS") {
@@ -92,12 +93,13 @@ export default function ProductCard({
         <Title>{title}</Title>
         <Price>{price}</Price>
         <Subtext>{brand}</Subtext>
+        <p style={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>{description}</p>
 
         {engraving && <Badge>{t("freeEngraving")}</Badge>}
 
         {badges.length > 0 && (
           <TagsContainer>
-            {badges.map((badge, idx) => (
+            {badges.map((badge: string, idx: number) => (
               <Tag key={idx}>{badge.toUpperCase()}</Tag>
             ))}
           </TagsContainer>
@@ -110,3 +112,7 @@ export default function ProductCard({
     </Card>
   );
 }
+
+ProductCard.displayName = "ProductCard";
+
+export default ProductCard;

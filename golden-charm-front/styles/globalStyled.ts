@@ -1,9 +1,8 @@
 // styles/globalStyles.ts
 import { createGlobalStyle } from 'styled-components';
-import { colorId } from './colors'; // ajuste o caminho conforme sua estrutura
 
 export const GlobalStyles = createGlobalStyle`
-    /* Reset básico */
+  /* Reset básico */
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -14,8 +13,8 @@ export const GlobalStyles = createGlobalStyle`
   html, body {
     height: 100%;
     overflow-x: hidden; /* ← previne scroll horizontal */
-    background-color: ${colorId.textLight};
-    color: ${colorId.textMuted};
+    background-color: ${(props) => props.theme.textInverse};
+    color: ${(props) => props.theme.textBase};
     font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;

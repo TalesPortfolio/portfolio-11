@@ -4,15 +4,19 @@
 // Everything here remains intact, even when navigating or changing language.    ///    
 // Perfect for persistent provides such as cart, theme, authentication ...       ///
 ///////////////////////////////////////////////////////////////////////////////////
-
-
+// app/layout.tsx
 import GlobalProviders from "./GlobalProviders";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
   return (
-    <html lang="en">
+    <html lang={params.locale}>
       <body>
-        {/* Involves the app with global provides (Cartprovider, etc.) */}
         <GlobalProviders>
           {children}
         </GlobalProviders>

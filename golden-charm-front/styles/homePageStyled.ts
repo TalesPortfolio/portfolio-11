@@ -1,6 +1,5 @@
 "use client";
 import styled, { keyframes } from "styled-components";
-import { colorId } from "./colors";
 
 // Animação de fade-in
 const fadeIn = keyframes`
@@ -19,15 +18,14 @@ interface AnimatedProps {
   $animate?: boolean;
 }
 
-
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
   height: 100vh;
   padding-top: 80px;
-  background-color: ${colorId.backgroundPrimary2};
+  background-color: ${(props) => props.theme.bgMain};
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     height: auto;
     padding: 2rem 1rem 0;
   }
@@ -37,10 +35,9 @@ export const Section = styled.section`
   }
 `;
 
-
 export const QuoteContainer = styled.section`
   padding-top: 4rem;
-  background-color: ${colorId.backgroundPrimary2};
+  background-color: ${(props) => props.theme.bgMain};
   text-align: center;
   font-family: 'Georgia', serif;
 `;
@@ -48,7 +45,7 @@ export const QuoteContainer = styled.section`
 export const QuoteText = styled.p<AnimatedProps>`
   font-size: 1.5rem;
   line-height: 2rem;
-  color: ${colorId.accentPurple};
+  color: ${(props) => props.theme.textPrimary};
   margin-bottom: 2rem;
   max-width: 800px;
   margin-left: auto;
@@ -64,7 +61,7 @@ export const QuoteText = styled.p<AnimatedProps>`
     transform: translateY(0);
   `}
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 1.2rem;
     line-height: 1.6rem;
   }
@@ -72,7 +69,7 @@ export const QuoteText = styled.p<AnimatedProps>`
 
 export const QuoteAuthor = styled.p<AnimatedProps>`
   font-size: 1.1rem;
-  color: ${colorId.accentPurple};
+  color: ${(props) => props.theme.textTitle};
   font-style: italic;
   opacity: 0;
   transform: translateY(20px);
@@ -85,18 +82,17 @@ export const QuoteAuthor = styled.p<AnimatedProps>`
     transform: translateY(0);
   `}
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 1rem;
   }
 `;
-
 
 export const Banner = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 62vh;
-  background-image: ${colorId.backgroundGradient};
+  background-image: ${(props) => props.theme.bgGradientSection};
 
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
@@ -116,7 +112,6 @@ export const Img = styled.img`
   object-fit: contain;
 `;
 
-
 export const BannerSection = styled.div`
   width: 50%;
   height: 100%;
@@ -124,28 +119,20 @@ export const BannerSection = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1024px),
+  (max-width: 768px),
+  (max-width: 480px) {
     width: 100%;
     height: auto;
   }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-
-  @media (max-width: 480px) {
-    width: 100%;
-  }
 `;
-
-
 
 export const BannerText = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${colorId.accentPurple};
+  color: ${(props) => props.theme.textPrimary};
   padding: 2em;
   animation: ${fadeIn} 2s ease-in-out forwards;
   opacity: 0;
@@ -159,7 +146,7 @@ export const BannerText = styled.div`
     font-size: 3.5em;
     font-weight: 700;
     margin: 0 0 0.2em 0;
-    color: ${colorId.accentPurple};
+    color: ${(props) => props.theme.textPrimary};
   }
 
   h2 {
@@ -171,12 +158,12 @@ export const BannerText = styled.div`
   p {
     font-size: 1.2em;
     margin-bottom: 1.5em;
-    color: ${colorId.accentPurple};
+    color: ${(props) => props.theme.textPrimary};
   }
 
   button {
-    background: ${colorId.ButtonStyles};
-    color: ${colorId.textLight};
+    background: ${(props) => props.theme.buttonPrimary};
+    color: ${(props) => props.theme.textInverse};
     font-weight: bold;
     font-size: 1em;
     padding: 0.7em 1.5em;
@@ -185,7 +172,7 @@ export const BannerText = styled.div`
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: ${colorId.ButtonStylesHover};
+      background-color: ${(props) => props.theme.buttonPrimaryHover};
     }
   }
 

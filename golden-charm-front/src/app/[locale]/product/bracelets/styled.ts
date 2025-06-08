@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import { colorId } from "../../../../../styles/colors";
 
 export const SectionProduct = styled.section`
   display: flex;
   flex-direction: column;
-  background-color: ${colorId.backgroundProduct};
-  height: auto;
+  background-color: ${({ theme }) => theme.bgMain};
   padding-top: 120px;
   padding-bottom: 30px;
 
@@ -19,17 +17,15 @@ export const SectionProduct = styled.section`
   }
 `;
 
-
 export const BannerImage = styled.div`
   width: 80%;
   max-width: 1200px;
   border-radius: 12px;
   overflow: hidden;
-  margin: 4rem auto; // garante centralização
+  margin: 4rem auto;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(193, 41, 115, 0.2); // baseado em #C12973
-
+  box-shadow: ${({ theme }) => theme.cardShadow};
 
   @media (max-width: 768px) {
     margin: 2rem auto;
@@ -41,6 +37,7 @@ export const BannerImage = styled.div`
   }
 `;
 
+
 export const Product = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -50,24 +47,23 @@ export const Product = styled.section`
   width: 80%;
   max-width: 1200px;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 90%;
     gap: 1.5rem;
   }
 
   @media (max-width: 480px) {
+    width: 95%;
     gap: 1rem;
     padding: 0.5rem;
-    width: 95%;
   }
 `;
-
 
 export const PageTitle = styled.h1`
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
-  color: ${colorId.accentPurple};
+  color: ${({ theme }) => theme.textPrimary};
   margin: 2rem 0 1rem;
 
   @media (max-width: 768px) {
@@ -80,4 +76,3 @@ export const PageTitle = styled.h1`
     margin: 1rem 0 0.5rem;
   }
 `;
-

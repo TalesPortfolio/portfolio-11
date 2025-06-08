@@ -1,14 +1,83 @@
-'use client';
+"use client";
 
-//import {useTranslations} from 'next-intl';
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
- 
-export default function Earrings() {
-  //const t = useTranslations('Earrings');
+import Footer from "../../../../../components/Footer";
+import AppNavbar from "../../../../../components/Navbar";
+import ProductCard from "../../../../../components/ProductCard";
+import { SectionProduct, Product, BannerImage, PageTitle } from "./styled";
+import type { Product as ProductType } from "../../../../../types/product";
+import { BackButton } from "../[id]/styled";
+import { useRouter } from "next/navigation";
+
+function Earrings() {
+  const locale = useLocale();
+  const t = useTranslations("EarringsPage"); // ← nome da chave de tradução
+  const router = useRouter();
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const data = await import(
+          `../../../../data/earrings/products.${locale}.ts` // ← caminho de earrings
+        );
+        setProducts(data.products as ProductType[]);
+        setError(false);
+      } catch (err) {
+        console.error("Error loading earrings:", err);
+        setProducts([]);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, [locale]);
+
   return (
     <>
-      <h1>Pagina dos Brincos</h1>
+      <AppNavbar />
+      <SectionProduct>
+        <BannerImage>
+          <Image
+            src="/images/banner/banner1.png"
+            alt={t("bannerAlt")}
+            width={1200}
+            height={100}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </BannerImage>
 
+        <PageTitle>{t("pageTitle")}</PageTitle>
+
+        {loading ? (
+          <p style={{ textAlign: "center" }}>{t("loading")}</p>
+        ) : error ? (
+          <p style={{ textAlign: "center", color: "red" }}>
+            {t("errorLoading")}
+          </p>
+        ) : (
+          <Product>
+            {products.map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </Product>
+        )}
+        <BackButton onClick={() => router.push(`/${locale}`)}>
+          ← {t("back")}
+        </BackButton>
+      </SectionProduct>
+      <Footer />
     </>
   );
 }
+
+Earrings.displayName = 'Earrings';
+
+export default Earrings;

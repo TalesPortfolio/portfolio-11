@@ -1,17 +1,16 @@
 // styles/ProductCardStyles.ts
 import styled, { css } from 'styled-components';
-import { colorId } from './colors';
 
 export const Card = styled.div`
   width: 300px;
-  background-image: ${colorId.backgroundGradient2};
-  box-shadow: 4px 4px 8px rgba(193, 41, 115, 0.2);
-  border: 1px solid ${colorId.textLight};
+  background-image: ${(props) => props.theme.bgGradientSection};
+  box-shadow: ${({ theme }) => theme.cardShadow};
+  border: 1px solid ${(props) => props.theme.textInverse};
   padding: 1rem;
   margin: 1rem;
   position: relative;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 90%;
     margin: 1rem auto;
   }
@@ -84,7 +83,7 @@ export const Price = styled.p`
 
 export const Subtext = styled.p`
   font-size: 12px;
-  color: ${colorId.textMuted};
+  color: ${(props) => props.theme.textBase};
 `;
 
 export const Badge = styled.p`
@@ -94,11 +93,10 @@ export const Badge = styled.p`
   margin-top: 4px;
 `;
 
-
 export const AddToCartButton = styled.button`
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: ${colorId.ButtonStyles};
+  background-color: ${(props) => props.theme.buttonPrimary};
   color: white;
   border: none;
   border-radius: 6px;
@@ -108,11 +106,7 @@ export const AddToCartButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color:${colorId.ButtonStylesHover};
-  }
-
-    &:hover {
-    background-color: ${colorId.ButtonStylesHover};
+    background-color: ${(props) => props.theme.buttonPrimaryHover};
   }
 
   @media (max-width: 480px) {

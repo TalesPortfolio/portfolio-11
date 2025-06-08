@@ -27,4 +27,6 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ src, poster }) => (
   </BannerWrapper>
 );
 
+VideoBanner.displayName = "VideoBanner";
+
 export default VideoBanner;

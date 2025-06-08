@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { colorId } from "./colors";
-
 
 export const SlideWrapper = styled.div`
   display: flex;
@@ -20,7 +18,7 @@ export const SlideWrapper = styled.div`
 
 
 export const Wrapper = styled.section`
-  background-image: ${colorId.backgroundGradient2};
+  background-image: ${(props) => props.theme.bgGradientSection};
   padding: 4rem 2rem;
   text-align: center;
 

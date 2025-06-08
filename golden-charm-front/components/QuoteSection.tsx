@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { QuoteContainer, QuoteText, QuoteAuthor } from '../styles/homePageStyled';
 import { useTranslations } from 'next-intl';
 
-export default function QuoteSection() {
+function QuoteSection() {
   const t = useTranslations('QuoteSection');
   const { ref, inView } = useInView({ threshold: 0.3 });
   const [showAnimation, setShowAnimation] = useState(false);
@@ -26,3 +26,7 @@ export default function QuoteSection() {
     </QuoteContainer>
   );
 }
+
+QuoteSection.displayName = "QuoteSection";
+
+export default QuoteSection;

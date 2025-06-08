@@ -3,7 +3,7 @@
 import {useTranslations} from 'next-intl';
 
  
-export default function Contact() {
+function Contact() {
   const t = useTranslations('Contact');
   return (
     <div>
@@ -12,3 +12,7 @@ export default function Contact() {
     </div>
   );
 }
+
+Contact.displayName = 'Contact';
+
+export default Contact;

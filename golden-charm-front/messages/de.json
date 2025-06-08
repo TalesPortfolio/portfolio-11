@@ -168,9 +168,50 @@
     "total": "Gesamt",
     "checkout": "Kauf abschließen (simuliert)"
   },
+  "ProductCategoriesPage": {
+    "pageTitle": "Unsere Kollektionen",
+    "bracelets": "Armbänder",
+    "cords": "Ketten",
+    "earrings": "Ohrringe",
+    "pendants": "Anhänger",
+    "rings": "Ringe",
+    "reparation": "Schmuckreparatur",
+    "JewelryEngraving": "Schmuckgravur"
+  },
   "BraceletsPage": {
+    "pageTitle": "Armbänder",
     "bannerAlt": "Armband-Banner",
-    "pageTitle": "Exklusive Golden Charm Armbänder"
+    "loading": "Produkte werden geladen...",
+    "errorLoading": "Fehler beim Laden der Produkte.",
+    "back": "Zurück zur Startseite"
+  },
+  "CordsPage": {
+    "bannerAlt": "Bannerbild für Kabel",
+    "pageTitle": "String-Sammlungen",
+    "loading": "Laden...",
+    "errorLoading": "Fehler beim Laden der Produkte.",
+    "back": "Zurück zur Startseite"
+  },
+  "EarringsPage": {
+    "bannerAlt": "Elegantes Ohrringe Banner",
+    "pageTitle": "Ohrring-Kollektion",
+    "loading": "Ohrringe werden geladen...",
+    "errorLoading": "Fehler beim Laden der Ohrringe. Bitte versuchen Sie es erneut.",
+    "back": "Zurück zur Startseite"
+  },
+  "PendantsPage": {
+    "bannerAlt": "Elegantes Anhänger-Banner",
+    "pageTitle": "Anhänger-Kollektion",
+    "loading": "Anhänger werden geladen...",
+    "errorLoading": "Fehler beim Laden der Anhänger. Bitte versuchen Sie es erneut.",
+    "back": "Zurück zur Startseite"
+  },
+  "RingsPage": {
+    "bannerAlt": "Elegantes Ringe-Banner",
+    "pageTitle": "Ringkollektion",
+    "loading": "Ringe werden geladen...",
+    "errorLoading": "Fehler beim Laden der Ringe. Bitte versuchen Sie es erneut.",
+    "back": "Zurück zur Startseite"
   },
   "ProductDetailPage": {
     "notFound": "Produkt nicht gefunden",

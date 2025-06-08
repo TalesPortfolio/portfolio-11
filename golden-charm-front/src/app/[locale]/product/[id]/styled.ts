@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { colorId } from "../../../../../styles/colors";
 
 export const SectionMain = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-height: 100%;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: ${({ theme }) => theme.bgMain};
+`;
 
 export const PageWrapper = styled.div`
   padding: 2rem;
@@ -19,6 +19,11 @@ export const ProductWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding-top: 170px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 120px;
+  }
 `;
 
 export const Gallery = styled.div`
@@ -41,11 +46,15 @@ export const Details = styled.div`
 export const Title = styled.h1`
   font-size: 2rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+  }
 `;
 
 export const Price = styled.p`
   font-size: 1.5rem;
-  color: ${colorId.textMuted};
+  color: ${({ theme }) => theme.textBase};
   margin-bottom: 1rem;
 `;
 
@@ -72,37 +81,39 @@ export const SizeGrid = styled.div`
 
 export const SizeButton = styled.button`
   padding: 0.5rem 1rem;
-  background-color: white;
-  border: 1px solid ${colorId.textMuted};
+  background-color: ${({ theme }) => theme.inputBackground};
+  color: ${({ theme }) => theme.inputText};
+  border: 1px solid ${({ theme }) => theme.textBase};
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: ${colorId.ButtonStyles};
+    background-color: ${({ theme }) => theme.buttonPrimary};
     color: white;
-    border-color:${colorId.accentPink};
+    border-color: ${({ theme }) => theme.textHighlight};
   }
 `;
 
 export const AddToCartButton = styled.button`
-  background-color: ${colorId.ButtonStyles};
+  background-color: ${({ theme }) => theme.buttonPrimary};
   color: white;
   padding: 1rem 2rem;
   border: none;
   cursor: pointer;
   font-size: 1rem;
   margin-bottom: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 
   &:hover {
-    opacity: 0.9;
-    background-color: ${colorId.ButtonStylesHover};
+    background-color: ${({ theme }) => theme.buttonPrimaryHover};
   }
 `;
 
 export const BackButton = styled.button`
   background: transparent;
   border: none;
-  color: ${colorId.accentPink};
+  color: ${({ theme }) => theme.textHighlight};
   cursor: pointer;
   text-decoration: underline;
   margin-left: 1rem;

@@ -52,4 +52,6 @@ const ProductsIcon = () => {
   );
 };
 
+ProductsIcon.displayName = "ProductsIcon" ;
+
 export default ProductsIcon;

@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Container, Card, Image, Title, Description, Button } from "../styles/CollectionShowcase";
 
-export default function CollectionShowcase() {
+function CollectionShowcase() {
   const t = useTranslations("Collection");
   const params = useParams() as { locale: string };
    const currentLocale = params.locale;
@@ -47,3 +47,7 @@ export default function CollectionShowcase() {
     </Container>
   );
 }
+
+CollectionShowcase.displayName = "CollectionShowcase";
+
+export default CollectionShowcase;

@@ -1,5 +1,5 @@
+// styles/SeuArquivo.ts
 import styled, { keyframes } from "styled-components";
-import { colorId } from "./colors";
 
 const shake = keyframes`
   0%   { transform: translateX(0); }
@@ -15,7 +15,7 @@ export const Section = styled.section`
   gap: 1rem;
   justify-content: center;
   height: 100%;
-  //background-color: ${colorId.backgroundPrimary2};
+
 
   @media (max-width: 768px) {
     gap: 1rem;
@@ -33,7 +33,7 @@ export const H2 = styled.h2`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: ${colorId.accentPurple};
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 export const Img = styled.img`
@@ -46,6 +46,7 @@ export const Img = styled.img`
   &:hover {
     transform: scale(1.05);
   }
+
   @media (max-width: 768px) {
     width: 90px;
     height: 90px;
@@ -67,23 +68,27 @@ export const DivIcon = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: ${colorId.backgroundGradientCard};
+  background-image: ${(props) => props.theme.bgGradientCard};
 `;
 
 export const Subtitle = styled.p`
-  color: ${colorId.accentPurple};
+  color: ${(props) => props.theme.textPrimary};
   font-weight: bold;
+  text-align: center;
+  margin: 0 0.5rem;
+  word-break: break-word; // force breakage line if necessary
+  max-width: 100px;
 
   &:hover {
-    color: ${colorId.accentPink};
+    color: ${(props) => props.theme.textHighlight};
     animation: ${shake} 0.5s infinite;
   }
 
   @media (max-width: 768px) {
-    color: ${colorId.accentPurple};
+    color: ${(props) => props.theme.textPrimary};
   }
 
   @media (max-width: 480px) {
-    ${colorId.accentPurple};
+    color: ${(props) => props.theme.textPrimary};
   }
 `;
