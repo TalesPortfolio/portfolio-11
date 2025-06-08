@@ -6,7 +6,7 @@ import { hasLocale } from "next-intl";
 import Providers from "./Providers";
 import { routing } from "@/i18n/routing";
 
-export default async function LocaleLayout({
+export default function LocaleLayout({
   children,
   params,
 }: {
@@ -19,12 +19,9 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const messages = (await import(`../../../messages/${locale}.json`)).default;
-
   return (
-    <Providers locale={locale} messages={messages}>
+    <Providers locale={locale}>
       {children}
     </Providers>
   );
 }
-

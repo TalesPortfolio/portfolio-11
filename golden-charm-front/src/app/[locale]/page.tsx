@@ -17,6 +17,7 @@ import {
 import { useTranslations } from "next-intl";
 import Footer from "../../../components/Footer";
 import CollectionShowcase from "../../../components/CollectionShowcase";
+import Link from "next/link";
 
 function HomePage() {
   const t = useTranslations("HomePage");
@@ -31,7 +32,9 @@ function HomePage() {
               <h1>{t("brand")}</h1>
               <h2>{t("slogan")}</h2>
               <p>{t("description")}</p>
-              <button>{t("shopNow")}</button>
+              <button>
+                <Link href={`/product`}>{t("shopNow")}</Link>
+              </button>
             </div>
           </BannerText>
           <BannerSection>
@@ -47,14 +50,12 @@ function HomePage() {
       <Section>
         <CollectionShowcase />
         <TestimonialSlider />
-         <Footer />
+        <Footer />
       </Section>
-
-     
     </>
   );
 }
 
-HomePage.displayName = 'HomePage';
+HomePage.displayName = "HomePage";
 
 export default HomePage;
