@@ -6,14 +6,14 @@ import { hasLocale } from "next-intl";
 import Providers from "./Providers";
 import { routing } from "@/i18n/routing";
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
