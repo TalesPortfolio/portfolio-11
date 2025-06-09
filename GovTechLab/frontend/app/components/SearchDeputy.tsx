@@ -195,7 +195,8 @@ export default function SearchDeputy() {
 
   return (
     <Container>
-      <h1>Comparaison des Députés</h1>
+      <h1>Comparaison des Députés du Luxembourg</h1>
+
       <CompareInfo />
 
       <InputGroup>
@@ -314,7 +315,7 @@ export default function SearchDeputy() {
         }}
       />
 
-      <h2 style={{ marginTop: "2rem", textAlign: "center" }}>Tous les Députés</h2>
+      <h2 style={{ marginTop: "2rem", textAlign: "center" }}>Tous les Députés du Luxembourg</h2>
       <PhotoGrid>
         {allDeputiesPhotos.map((dep, i) => (
           <PhotoCard
