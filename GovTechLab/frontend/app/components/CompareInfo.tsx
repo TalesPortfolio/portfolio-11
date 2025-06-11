@@ -29,9 +29,15 @@ const InfoBox = styled.div`
 export default function CompareInfo() {
   return (
     <InfoBox>
-      <p>« Ce n'est pas un système de notation. Il ne s'agit pas de savoir qui est bon ou mauvais.»</p>
-      <p>« Il s'agit d'accès. Donner aux citoyens, aux étudiants et aux journalistes un moyen de consulter les faits réels.»</p>
-      <p>« La transparence renforce la démocratie, et des outils comme celui-ci la facilitent. »</p>
+      <p>
+        Le projet a été réalisé à des fins de démonstration uniquement, sans traitement des données en ce qui concerne les dates.
+      </p>
+      <p>
+        Par conséquent, certaines divergences peuvent apparaître dans les valeurs, car certains députés ont commencé leur carrière politique bien avant l’année 2023.
+      </p>
+      <p>
+        Nous recommandons de vérifier directement les données disponibles sur le site de data.public.
+      </p>
     </InfoBox>
   );
 }
