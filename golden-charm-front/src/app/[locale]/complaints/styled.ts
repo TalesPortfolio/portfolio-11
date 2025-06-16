@@ -1,136 +1,109 @@
-// styles/complaints.ts
+// src/app/[locale]/complaints/styled.ts
 import styled from "styled-components";
 
 export const SectionMain = styled.div`
-  width: 100%;
-  background-image: ${(props) => props.theme.bgGradientSection};
-  padding-top: 100px;
+  padding-top: 120px; /* espaço para o Navbar fixo */
+  background: ${({ theme }) => theme.bgGradientSection};
+  min-height: 100vh;
 `;
 
 export const Section = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  background: ${({ theme }) => theme.cardBackground};
+  border-radius: 12px;
+  box-shadow: ${({ theme }) => theme.cardShadow};
+  padding-bottom: 50px;
+   margin-bottom: 2rem;
+`;
+
+export const Title = styled.h1`
+  font-size: 2rem;
+  text-align: center;
   color: ${({ theme }) => theme.textTitle};
+  margin-bottom: 1rem;
+`;
 
-
-  h1 {
-    font-size: 2.5rem;
-    color: ${(props) => props.theme.textHighlight};
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  p {
-    text-align: justify;
-    margin-bottom: 30px;
-    line-height: 1.6;
-    font-size: 1.05rem;
-  }
-
-  @media (max-width: 768px) {
-    padding: 70px 16px;
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 0.95rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.7rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-    }
-  }
+export const Description = styled.p`
+  text-align: center;
+  color: ${({ theme }) => theme.textBase};
+  margin-bottom: 2rem;
+  line-height: 1.4;
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
+`;
 
-  @media (max-width: 480px) {
-    gap: 12px;
-  }
+export const FieldGroup = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Label = styled.label`
-  font-weight: bold;
-  margin-top: 10px;
-  font-size: 1rem;
-
-  input[type="checkbox"] {
-    margin-right: 8px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.95rem;
-  }
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: ${({ theme }) => theme.textBase};
 `;
 
 export const Input = styled.input`
-  padding: 10px;
-  border: 1px solid ${(props) => props.theme.textTitle};
-  border-radius: 4px;
-  background-color: ${(props) => props.theme.inputBackground};
-  color: ${(props) => props.theme.inputText};
+  padding: 0.75rem 1rem;
+  border: 1px solid ${({ theme }) => theme.textBase};
+  border-radius: 8px;
   font-size: 1rem;
+  transition: border-color 0.2s;
 
   &:focus {
     outline: none;
-    border-color: ${(props) => props.theme.textHighlight};
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.95rem;
+    border-color: ${({ theme }) => theme.textHighlight};
   }
 `;
 
 export const Textarea = styled.textarea`
-  padding: 10px;
-  border: 1px solid ${(props) => props.theme.textTitle};
-  border-radius: 4px;
-  background-color: ${(props) => props.theme.inputBackground};
-  resize: vertical;
-  color: ${(props) => props.theme.inputText};
+  padding: 0.75rem 1rem;
+  border: 1px solid ${({ theme }) => theme.textBase};
+  border-radius: 8px;
   font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.2s;
 
   &:focus {
     outline: none;
-    border-color: ${(props) => props.theme.textHighlight};
+    border-color: ${({ theme }) => theme.textHighlight};
+  }
+`;
+
+export const CheckboxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input {
+    width: 1rem;
+    height: 1rem;
   }
 
-  @media (max-width: 480px) {
-    font-size: 0.95rem;
+  label {
+    font-weight: 500;
+    color: ${({ theme }) => theme.textBase};
   }
 `;
 
 export const Button = styled.button`
-  background-color: ${(props) => props.theme.textHighlight};
-  color: white;
-  font-weight: bold;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: ${({ theme }) => theme.buttonPrimary};
+  color: #fff;
+  font-weight: 600;
   border: none;
-  padding: 12px;
-  margin-top: 20px;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  font-size: 1rem;
+  transition: background 0.2s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.textTitle};
-
-  }
-
-  @media (max-width: 480px) {
-    padding: 10px;
-    font-size: 0.95rem;
+    background: ${({ theme }) => theme.buttonPrimaryHover};
   }
 `;

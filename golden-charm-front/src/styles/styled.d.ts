@@ -4,7 +4,7 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    // Cores de fundo
+    // Backgrounds gerais
     bgMain: string;
     bgSectionPrimary: string;
     bgSectionSecondary: string;
@@ -12,7 +12,7 @@ declare module "styled-components" {
     bgGradientSection: string;
     bgGradientCard: string;
 
-    // Cartões
+    // Cores dos componentes
     cardBackground: string;
     cardShadow: string;
 
@@ -34,10 +34,10 @@ declare module "styled-components" {
     inputBackground: string;
     inputText: string;
 
-    // Outros
+    // Layout / bordas
     borderHighlight: string;
     headerBackground: string;
-    textPrimary: string;
-    primaryColor: string;
+    textPrimary: string;    // cor primária de texto fora de destaques
+    primaryColor: string;   // cor primária de destaque (ex: links, ícones)
   }
 }

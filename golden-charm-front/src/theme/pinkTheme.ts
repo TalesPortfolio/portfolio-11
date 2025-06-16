@@ -1,39 +1,47 @@
-export const pinkTheme = {
-  // Backgrounds gerais
-  bgMain: "#f9eeee",
-  bgSectionPrimary: "#D3478B",
-  bgSectionSecondary: "#f9eeee",
-  bgGradientMain:
-    "linear-gradient(to bottom, rgb(207, 54, 128) 0%, #f7cac9 50%, #f9eeee 100%)",
-  bgGradientSection:
-    "linear-gradient(to bottom, #f9eeee 0%, #f7cac9 50%, #f9eeee 100%)",
-  bgGradientCard: "linear-gradient(to bottom, #EFD9DA 0%, #EFD9DA 100%)",
+// src/theme/pinkTheme.ts
+import type { DefaultTheme } from "styled-components";
 
-  // Cores dos componentes
-  cardBackground: "#FAFAFA",
-  cardShadow: "0 4px 12px rgba(193, 41, 115, 0.2)",
+export const pinkTheme: DefaultTheme = {
+  // Backgrounds gerais
+  bgMain: "#fcf2f6",                           
+  bgSectionPrimary: "#fbe8ee",                 
+  bgSectionSecondary: "#fcf2f6",               
+
+  // Degradês repensados
+  bgGradientMain:
+    "linear-gradient(to bottom, #fcf2f6 0%, #fbe8ee 70%, #fcf2f6 100%)",
+  bgGradientSection:
+    "linear-gradient(to bottom, #fcf2f6 0%, #f9e1ea 50%, #fcf2f6 100%)",
+  bgGradientCard:
+    "linear-gradient(to bottom, #ffffff 0%, #faf2f5 100%)",
+
+  // Cartões
+  cardBackground: "#ffffff",
+  cardShadow: "0 4px 12px rgba(193, 41, 115, 0.1)",          
 
   // Botões
-  buttonPrimary: "#c12973",
-  buttonPrimaryHover: "#E91E63",
+  buttonPrimary: "#e69ab4",                      
+  buttonPrimaryHover: "#d47897",                 
 
   // Tipografia
-  textTitle: "#6C1A74",
-  textHighlight: "#E91E63",
-  textBase: "#353535",
-  textInverse: "#FFFFFF",
+  textTitle: "#7e3a51",                          
+  textHighlight: "#d47897",                      
+  textBase: "#4a4a4a",                            
+  textInverse: "#ffffff",                        
 
   // Feedback
-  successColor: "#518b22",
-  errorColor: "#be2119",
+  successColor: "#34a853",                       
+  errorColor: "#c0392b",                         
 
-  //input
-  inputBackground: "#ffffff",
-  inputText: "#1f2937",
+  // Inputs
+  inputBackground: "#faf2f5",                    
+  inputText: "#4a4a4a",                          
 
-  // Layout
-  borderHighlight: "#FFD700",
-  headerBackground: "#fff",
-  textPrimary: "#1f1f1f",
-  primaryColor: "#c12973",
+  // Layout / bordas
+  borderHighlight: "#f7b2c4",                    
+  headerBackground: "#ffffff",
+  textPrimary: "#4a4a4a",
+  primaryColor: "#e69ab4",                       
 };
+
+export default pinkTheme;

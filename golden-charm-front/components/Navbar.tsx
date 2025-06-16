@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useCart } from "@/context/CartContext";
-import { useThemeContext } from "../src/context/ThemeContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useRouter, usePathname, useParams } from "next/navigation";
 import { FiSearch, FiShoppingCart, FiUser, FiHeart } from "react-icons/fi";
+import { useRouter, usePathname, useParams } from "next/navigation";
+import { useCart } from "@/context/CartContext";
+import { useThemeContext, ThemeName } from "@/context/ThemeContext";
+import { useTranslations } from "next-intl";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import {
   Title,
   Header,
@@ -22,7 +24,6 @@ import {
   Carrosel,
 } from "../styles/NavBarStyled";
 import { routing } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
 
 const localeLabels: Record<string, string> = {
   pt: "🇵🇹",
@@ -33,20 +34,22 @@ const localeLabels: Record<string, string> = {
 
 const AppNavbar: React.FC = () => {
   const t = useTranslations("AppNavbar");
+  const { cart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   const { theme, setTheme } = useThemeContext();
-  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams() as { locale: string };
   const currentLocale = params.locale;
-  const { cart } = useCart();
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     import("bootstrap/js/dist/carousel").then(({ default: Carousel }) => {
       const el = document.getElementById("carouselExampleIndicators");
       if (el)
-        new Carousel(el, { interval: 2000, ride: "carousel", wrap: true });
+        new Carousel(el, { interval: 3000, ride: "carousel", wrap: true });
     });
   }, []);
 
@@ -117,28 +120,14 @@ const AppNavbar: React.FC = () => {
           </SearchIconWrapper>
         </SearchContainer>
 
-        <IconLink
-          href={`/${currentLocale}/favorite`}
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title={t("iconFavorite")}
-        >
+        <IconLink href={`/${currentLocale}/favorite`} title={t("iconFavorite")}>
           <FiHeart size={24} />
         </IconLink>
-
-        <IconLink
-          href={`/${currentLocale}/login`}
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title={t("iconLogin")}
-        >
+        <IconLink href={`/${currentLocale}/login`} title={t("iconLogin")}>
           <FiUser size={24} />
         </IconLink>
-
         <IconLink
           href={`/${currentLocale}/checkout`}
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
           title={t("iconCart")}
           style={{ position: "relative" }}
         >
@@ -149,8 +138,8 @@ const AppNavbar: React.FC = () => {
                 position: "absolute",
                 top: "-8px",
                 right: "-8px",
-                backgroundColor: "#ffffff",
-                color: "black",
+                backgroundColor: "#fff",
+                color: "#000",
                 borderRadius: "50%",
                 padding: "2px 6px",
                 fontSize: "12px",
@@ -169,9 +158,13 @@ const AppNavbar: React.FC = () => {
             </option>
           ))}
         </LanguageSelect>
+
+        {/* Seletor de tema sem usar `any` */}
         <select
           value={theme}
-          onChange={(e) => setTheme(e.target.value as "pink" | "blue")}
+          onChange={(e) =>
+            setTheme(e.target.value as ThemeName)
+          }
           style={{
             marginLeft: "10px",
             padding: "4px 8px",
@@ -180,8 +173,10 @@ const AppNavbar: React.FC = () => {
             cursor: "pointer",
           }}
         >
-          <option value="pink">🌸 Theme</option>
-          <option value="blue">💙 Theme</option>
+          <option value="pink">🌸 Pink</option>
+          <option value="blue">💙 Blue</option>
+          <option value="gold">✨ Gold</option>
+          <option value="green">🍃 Green</option>
         </select>
       </IconGroup>
     </Header>
@@ -189,5 +184,4 @@ const AppNavbar: React.FC = () => {
 };
 
 AppNavbar.displayName = "AppNavBar";
-
 export default AppNavbar;

@@ -231,5 +231,31 @@
     "no": "Não",
     "back": "Voltar",
     "addToCart": "Adicionar ao carrinho"
+  },
+  "LoginPage": {
+    "title": "Bem-vindo de volta",
+    "email": "E-mail",
+    "password": "Senha",
+    "login": "Entrar",
+    "invalidCredentials": "E-mail ou senha inválidos.",
+    "noAccount": "Ainda não tem conta?",
+    "registerLink": "Cadastre-se aqui"
+  },
+    "RegisterPage": {
+    "title": "Crie sua conta",
+    "fullName": "Nome completo",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirme a senha",
+    "phone": "Telefone",
+    "country": "País",
+    "city": "Cidade",
+    "address": "Endereço",
+    "houseNumber": "Número",
+    "gender": "Selecione o gênero",
+    "female": "Feminino",
+    "male": "Masculino",
+    "other": "Outro",
+    "passwordMismatch": "As senhas não coincidem!"
   }
 }

@@ -1,54 +1,72 @@
+// src/app/[locale]/complaints/page.tsx
 "use client";
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import { SectionMain, Section, Form, Label, Input, Textarea, Button } from "./styled";
+import {
+  SectionMain,
+  Section,
+  Title,
+  Description,
+  Form,
+  FieldGroup,
+  Label,
+  Input,
+  Textarea,
+  CheckboxWrapper,
+  Button,
+} from "./styled";
 import AppNavbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 
-function WhistleblowerChannel() {
+export default function WhistleblowerChannel() {
   const [anonymous, setAnonymous] = useState(false);
   const t = useTranslations("Whistleblower");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // ...envia o formulário
+  };
 
   return (
     <SectionMain>
       <AppNavbar />
       <Section>
-        <h1>{t("title")}</h1>
-        <p>{t("description")}</p>
+        <Title>{t("title")}</Title>
+        <Description>{t("description")}</Description>
 
-        <Form>
+        <Form onSubmit={handleSubmit}>
           {!anonymous && (
             <>
-              <Label htmlFor="name">{t("name")}</Label>
-              <Input type="text" id="name" name="name" />
-              <Label htmlFor="email">{t("email")}</Label>
-              <Input type="email" id="email" name="email" />
+              <FieldGroup>
+                <Label htmlFor="name">{t("name")}</Label>
+                <Input id="name" name="name" type="text" />
+              </FieldGroup>
+              <FieldGroup>
+                <Label htmlFor="email">{t("email")}</Label>
+                <Input id="email" name="email" type="email" />
+              </FieldGroup>
             </>
           )}
 
-          <Label htmlFor="category">{t("category")}</Label>
-          <Input
-            type="text"
-            id="category"
-            name="category"
-            placeholder={t("categoryPlaceholder")}
-          />
+          <FieldGroup>
+            <Label htmlFor="category">{t("category")}</Label>
+            <Input id="category" name="category" type="text" placeholder={t("categoryPlaceholder")} />
+          </FieldGroup>
 
-          <Label htmlFor="description">{t("reportDescription")}</Label>
-          <Textarea
-            id="description"
-            name="description"
-            rows={6}
-            placeholder={t("reportPlaceholder")}
-          />
+          <FieldGroup>
+            <Label htmlFor="description">{t("reportDescription")}</Label>
+            <Textarea id="description" name="description" rows={5} placeholder={t("reportPlaceholder")} />
+          </FieldGroup>
 
-          <Label>
+          <CheckboxWrapper>
             <input
+              id="anonymous"
               type="checkbox"
-              onChange={() => setAnonymous(!anonymous)}
-            />{" "}
-            {t("anonymous")}
-          </Label>
+              checked={anonymous}
+              onChange={() => setAnonymous((prev) => !prev)}
+            />
+            <label htmlFor="anonymous">{t("anonymous")}</label>
+          </CheckboxWrapper>
 
           <Button type="submit">{t("submit")}</Button>
         </Form>
@@ -57,7 +75,3 @@ function WhistleblowerChannel() {
     </SectionMain>
   );
 }
-
-WhistleblowerChannel.displayName = 'WhistleblowerChannel';
-
-export default WhistleblowerChannel;

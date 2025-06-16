@@ -231,5 +231,31 @@
     "no": "No",
     "back": "Back",
     "addToCart": "Add to Cart"
+  },
+  "LoginPage": {
+    "title": "Welcome back",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log In",
+    "invalidCredentials": "Invalid email or password.",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Register here"
+  },
+    "RegisterPage": {
+    "title": "Create Your Account",
+    "fullName": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "phone": "Phone Number",
+    "country": "Country",
+    "city": "City",
+    "address": "Address",
+    "houseNumber": "House Number",
+    "gender": "Select Gender",
+    "female": "Female",
+    "male": "Male",
+    "other": "Other",
+    "passwordMismatch": "Passwords do not match!"
   }
 }
