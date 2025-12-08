@@ -1,0 +1,14 @@
+Paleta 3: Minimalismo Luxuoso
+Essa paleta é ainda mais minimalista, focando em tons monocromáticos com detalhes dourados para um visual clean e elegante.
+
+Branco Neve (#FAFAFA): Para o fundo principal, criando um visual limpo e moderno.
+Dourado Pálido (#E8B923): Para detalhes sutis, como o logo, ícones e bordas, mantendo o foco no "Golden Charm".
+Cinza Médio (#D3D3D3): Para textos secundários e bordas, oferecendo contraste suave.
+Preto Suave (#2E2E2E): Para textos principais e botões, garantindo legibilidade e sofisticação.
+Bege Claro (#F5F1E9): Para fundos alternativos ou gradientes, adicionando um toque de calor.
+Uso Sugerido:
+
+O Branco Neve é o fundo principal, com o Bege Claro em gradientes sutis no hero section.
+O Dourado Pálido pode ser usado no logo, ícones de navegação e bordas do botão "Shop Now".
+O Preto Suave é ideal para textos principais (como o título "Golden Charm") e botões.
+O Cinza Médio pode ser usado para textos secundários, como a tagline, e bordas de seções.

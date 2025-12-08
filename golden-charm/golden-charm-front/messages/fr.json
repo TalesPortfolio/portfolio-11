@@ -1,0 +1,261 @@
+{
+  "AppNavbar": {
+    "paragraph-1": "10% de réduction sur le paiement en espèces.",
+    "paragraph-2": "La fête des mères | profitez des meilleures offres.",
+    "paragraph-3": "Livraison gratuite pour les commandes de plus de 500 euros",
+    "navTitle-1": "Home",
+    "navTitle-2": "Produit",
+    "navTitle-3": "About",
+    "inputSearch": "Rechercher...",
+    "iconFavorite": "Préféré",
+    "iconLogin": "Connecter",
+    "iconCart": "Chariot"
+  },
+  "HomePage": {
+    "title": "Page principale",
+    "brand": "Golden Charm",
+    "slogan": "Sublimez votre beauté avec l'éclat qu'offre une véritable pièce de joaillerie.",
+    "description": "Découvrez des collections exclusives qui enchantent et éternisent les moments.",
+    "shopNow": "Acheter maintenant"
+  },
+  "Shop": {
+    "title": "Page les achats"
+  },
+  "Product": {
+    "title": "Page de produit"
+  },
+  "Cart": {
+    "title": "Chariot"
+  },
+  "Checkout": {
+    "title": "Page le paiement"
+  },
+  "About": {
+    "title": "Notre histoire"
+  },
+  "Whistleblower": {
+    "title": "Canal de Signalement",
+    "description": "Ce canal est réservé au signalement de comportements inappropriés, de violations éthiques ou d'activités suspectes. Les informations fournies seront traitées de manière confidentielle et, si vous le souhaitez, de façon anonyme.",
+    "name": "Nom (optionnel)",
+    "email": "E-mail (optionnel)",
+    "category": "Catégorie",
+    "categoryPlaceholder": "Ex : Harcèlement, Corruption, Fraude...",
+    "reportDescription": "Description du signalement",
+    "reportPlaceholder": "Décrivez votre signalement en détail...",
+    "anonymous": "Envoyer de façon anonyme",
+    "submit": "Envoyer le signalement"
+  },
+  "Contact": {
+    "title": "page le contact"
+  },
+  "Login": {
+    "title": "Page la connexion"
+  },
+  "ProductsIcon": {
+    "shopBy": "Acheter par catégorie",
+    "bracelet": "BRACELET",
+    "cord": "CORDE",
+    "earrings": "BOUCLES D'OREILLES",
+    "rings": "ANNEAU",
+    "pendant": "PENDENTIF"
+  },
+  "QuoteSection": {
+    "text": "Chaque création du <strong>Golden Charm</strong> est un hommage au raffinement: où l'audace du design trouve la délicatesse de la main, et les joyaux les plus rares racontent des histoires qui font écho au-delà du temps.Notre nouvelle collection plonge dans des univers cachés, révélant des bijoux qui suscitent l'émotion et le mystère à chaque détail.",
+    "author": "—Luiz Ribeiro, Golden Charm High Jewelry Creative Director"
+  },
+
+  "Carousel": {
+    "carouselTitle": "Points forts de la collection",
+    "slides": {
+      "slide1": { "title": "Bague Bali", "price": "€ 750,00" },
+      "slide2": { "title": "Bague Rhodolite", "price": "€ 500,00" },
+      "slide3": { "title": "Bague Marine", "price": "€ 810,00" },
+      "slide4": { "title": "Boucles d'oreilles", "price": "€ 550,00" },
+      "slide5": { "title": "Bracelet", "price": "€ 810,00" },
+      "slide6": { "title": "Cordon homme", "price": "€ 550,00" }
+    }
+  },
+  "TestimonialSlider": {
+    "ratingText": "Plus de 2 239 avis cinq étoiles",
+    "headline": "Découvrez ce que les gens disent de nous",
+    "about": "sur",
+    "testimonial1": {
+      "title": "La magnifique bague Lana !",
+      "description": "Cette bague est si brillante qu'elle reflète la lumière comme des paillettes. Je l'ai associée à de fines bagues en diamant. Elle se distingue par sa monture en or simple. Je suis ravie de mon achat.",
+      "author": "Lisa Logothetis",
+      "product": "La Bague Lana"
+    },
+    "testimonial2": {
+      "title": "Un autre témoignage incroyable !",
+      "description": "Ce bijou est parfait pour les occasions spéciales. J'ai reçu de nombreux compliments !",
+      "author": "Maria Silva",
+      "product": "Pendentif Golden Star"
+    },
+    "testimonial3": {
+      "title": "Complètement amoureuse de mon collier !",
+      "description": "Le pendentif Golden Star est encore plus beau en vrai. Il est élégant, délicat et j’ai reçu plein de compliments. L’un de mes meilleurs achats !",
+      "author": "Maria Silva",
+      "product": "Pendentif Golden Star"
+    },
+    "testimonial4": {
+      "title": "Un détail qui change tout",
+      "description": "Je me suis offert ce pendentif et j’en suis ravie. Il est raffiné, discret et illumine même les tenues les plus simples.",
+      "author": "Juliana M.",
+      "product": "Pendentif Elegance Light"
+    },
+    "testimonial5": {
+      "title": "Le symbole parfait de notre amour",
+      "description": "Nous avons choisi l’alliance Golden Charm pour marquer notre engagement. Le résultat est au-delà de nos attentes !",
+      "author": "André L.",
+      "product": "Alliance Classic Gold"
+    },
+    "testimonial6": {
+      "title": "L'élégance qui sublime votre style",
+      "description": "Ces boucles d'oreilles sont incroyables ! Légères, confortables et brillantes avec discrétion. Je les porte tout le temps.",
+      "author": "Renata F.",
+      "product": "Boucles d'oreilles Lux Rosé"
+    }
+  },
+  "Collection": {
+    "item1": {
+      "title": "Des bracelets classiques, réinventés",
+      "description": "Ajoutez une touche de couleur à votre été avec notre collection revisitée de bracelets emblématiques et lumineux."
+    },
+    "item2": {
+      "title": "Partagez l'essence de l'été",
+      "description": "Exprimez vos souvenirs d’été à travers des charms uniques, inspirés par les moments précieux et ensoleillés."
+    },
+    "item3": {
+      "title": "L’été dans toute sa liberté",
+      "description": "Emmenez l’esprit du soleil avec vous grâce à des bijoux éclatants conçus pour briller en toute occasion."
+    },
+    "learnMore": "Découvrir"
+  },
+  "Footer": {
+    "companyTitle": "Notre entreprise",
+    "aboutUs": "À propos de Golden Charm",
+    "investors": "Relations investisseurs",
+    "whistleblower": "Canal de dénonciation",
+    "supportTitle": "Assistance",
+    "trackOrder": "Suivre votre commande",
+    "supportCenter": "Service client",
+    "infoTitle": "Informations",
+    "warranty": "Politique de garantie",
+    "exchangePolicy": "Politique d'échange",
+    "newsletterTitle": "Restez informé",
+    "newsletterSubtitle": "Inscrivez-vous pour recevoir des informations exclusives",
+    "subscribe": "S'inscrire",
+    "privacyNoticeStart": "Ayant lu et compris la",
+    "privacyPolicy": "Politique de confidentialité",
+    "privacyNoticeEnd": "je déclare avoir plus de 18 ans",
+    "Nameshop": "Golden Charm",
+    "copyrigth": "Copyright © 2025, tous droits réservés.",
+    "cnpj": "CNPJ : 00.000.000/0000-00 Adresse : Rua sem saída - Dierkich/LUXEMBOURG"
+  },
+  "ProductCard": {
+    "freeEngraving": "GRAVURE GRATUITE",
+    "readyToShip": "PRÊT À EXPÉDIER!",
+    "moreDetails": "PLUS DE DÉTAILS",
+    "addToCart": "Ajouter au Panier"
+  },
+  "CheckoutPage": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide.",
+    "quantity": "Quantité",
+    "price": "Prix",
+    "remove": "Supprimer",
+    "total": "Total",
+    "checkout": "Finaliser l'achat (simulé)"
+  },
+  "ProductCategoriesPage": {
+    "pageTitle": "Nos Collections",
+    "bracelets": "Bracelets",
+    "cords": "Chaînes",
+    "earrings": "Boucles d'oreilles",
+    "pendants": "Pendentifs",
+    "rings": "Bagues",
+    "reparation": "Réparation de Bijoux",
+    "JewelryEngraving": "Gravure sur Bijoux"
+  },
+  "BraceletsPage": {
+    "pageTitle": "Bracelets",
+    "bannerAlt": "Banner de bracelets",
+    "loading": "Chargement des produits...",
+    "errorLoading": "Erreur lors du chargement des produits.",
+    "back": "Retour à l'accueil"
+  },
+  "CordsPage": {
+    "bannerAlt": "Bannière pour les cordons",
+    "pageTitle": "Collection de Cordons",
+    "loading": "Chargement...",
+    "errorLoading": "Erreur lors du chargement des produits.",
+    "back": "Retour à l'accueil"
+  },
+  "EarringsPage": {
+    "bannerAlt": "Bannière des boucles d'oreilles élégantes",
+    "pageTitle": "Collection de Boucles d'Oreilles",
+    "loading": "Chargement des boucles d'oreilles...",
+    "errorLoading": "Erreur lors du chargement des boucles d'oreilles. Veuillez réessayer.",
+    "back": "Retour à l'accueil"
+  },
+  "PendantsPage": {
+    "bannerAlt": "Bannière des pendentifs élégants",
+    "pageTitle": "Collection de pendentifs",
+    "loading": "Chargement des pendentifs...",
+    "errorLoading": "Erreur lors du chargement des pendentifs. Veuillez réessayer.",
+    "back": "Retour à l'accueil"
+  },
+  "RingsPage": {
+    "bannerAlt": "Bannière des bagues élégantes",
+    "pageTitle": "Collection de bagues",
+    "loading": "Chargement des bagues...",
+    "errorLoading": "Erreur lors du chargement des bagues. Veuillez réessayer.",
+    "back": "Retour à l'accueil"
+  },
+  "ProductDetailPage": {
+    "notFound": "Produit non trouvé",
+    "category": "Catégorie",
+    "description": "Description",
+    "material": "Matériau",
+    "weight": "Poids",
+    "size": "Taille",
+    "color": "Couleur",
+    "stoneType": "Type de pierre",
+    "price": "Prix",
+    "stock": "Stock",
+    "available": "Disponible",
+    "unavailable": "Indisponible",
+    "featured": "En vedette",
+    "yes": "Oui",
+    "no": "Non",
+    "back": "Retour",
+    "addToCart": "Ajouter au panier"
+  },
+  "LoginPage": {
+    "title": "Bon retour",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "login": "Se connecter",
+    "invalidCredentials": "E-mail ou mot de passe invalide.",
+    "noAccount": "Pas de compte ?",
+    "registerLink": "Inscrivez-vous ici"
+  },
+    "RegisterPage": {
+    "title": "Créez votre compte",
+    "fullName": "Nom complet",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmez le mot de passe",
+    "phone": "Téléphone",
+    "country": "Pays",
+    "city": "Ville",
+    "address": "Adresse",
+    "houseNumber": "Numéro",
+    "gender": "Sélectionnez le genre",
+    "female": "Féminin",
+    "male": "Masculin",
+    "other": "Autre",
+    "passwordMismatch": "Les mots de passe ne correspondent pas !"
+  }
+
+}
